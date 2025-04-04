@@ -6,10 +6,23 @@
     --complementary: #ffcacc;
 }
 
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+* {
+    font-family: var(--primaryfont);
+    color: var(--secondary);
+}
+
 body {
     background: linear-gradient(157.27deg, var(--primary) 28.96%, var(--tertiary) 109.33%);
     color: var(--secondary);
     font-family: var(--primaryfont);
+    margin: 0px;
+    padding: 0px;
 }
 
 .nav-content {
@@ -89,4 +102,24 @@ body {
 
 .nav-toggle {
     display: flex;
+}
+
+/* HERO SECTION */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 5% 0;
+}
+
+.hero-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.hero-logo {
+    width: 100%;
 }
