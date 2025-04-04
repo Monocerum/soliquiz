@@ -4,6 +4,7 @@
     --primaryfont: "Poppins", sans-serif;   
     --tertiary: #330000;
     --complementary: #ffcacc;
+    --lightgrey: rgba(215, 215, 215, 0.42);
 }
 
 html {
@@ -107,6 +108,7 @@ body {
 /* HERO SECTION */
 .hero {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -122,4 +124,40 @@ body {
 
 .hero-logo {
     width: 100%;
+}
+
+.hero-desc {
+    background: linear-gradient(126.37deg, #222120 59.14%, #323232 114.48%);
+    border-radius: 80px;
+    text-align: center;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-desc-container {
+    font-size: 1.5em;
+    padding: 2% 5% 0 5%;
+}
+
+.hero-desc-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.hero-button {
+    background-color: var(--lightgrey);
+    padding: 1% 2%;
+    border-radius: 20px;
+    width: 30%;
+    height: 50;
+    font-size: 1.5em;
+
+    a {
+        text-decoration: none;
+        list-style-type: none;
+    }
 }
