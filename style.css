@@ -1,0 +1,55 @@
+:root {
+    --primary: black;
+    --secondary: white;
+    --primaryfont: "Poppins", sans-serif;   
+    --tertiary: #330000;
+}
+
+body {
+    background: linear-gradient(157.27deg, var(--primary) 28.96%, var(--tertiary) 109.33%);
+    color: var(--secondary);
+    font-family: var(--primaryfont);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-right, .nav-list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}   
+
+.nav-right, .nav-links {
+    width: 100%;
+}
+
+.nav-list {
+    text-decoration: none;
+    justify-content: flex-end;
+    list-style-type: none;
+}
+
+.nav-link {
+    padding: 1% 2%;
+}
+
+#navScores {
+    padding-right: 5%;
+}
+
+.toggle-box {
+    width: 1.5em;
+}
+
+.nav-toggle {
+    display: flex;
+}
