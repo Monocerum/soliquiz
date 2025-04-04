@@ -23,6 +23,16 @@ body {
     align-items: center;
 }
 
+.nav-logo-img {
+    transition: transform 0.3s ease-in, color 0.3s ease-in;
+    cursor: pointer;
+}
+
+.nav-logo-img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-out, color 0.3s ease-out;
+}
+
 .nav-right, .nav-list {
     display: flex;
     justify-content: flex-end;
@@ -68,6 +78,13 @@ body {
 
 .toggle-box {
     width: 1.5em;
+    transition: transform 0.2s ease-in, color 0.2s ease-in;
+}
+
+.toggle-box:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-out, color 0.3s ease-out;
+    cursor: pointer;
 }
 
 .nav-toggle {
