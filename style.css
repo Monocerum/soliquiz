@@ -5,6 +5,7 @@
     --tertiary: #330000;
     --complementary: #ffcacc;
     --lightgrey: rgba(215, 215, 215, 0.42);
+    --lightergrey: #D9D9D9;
 }
 
 html {
@@ -117,12 +118,12 @@ body {
 
 .hero-main {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-end;
     width: 100%;
 }
 
-.hero-logo {
+.hero-img {
     width: 100%;
 }
 
@@ -134,6 +135,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 2%;
 }
 
 .hero-desc-container {
@@ -151,7 +153,7 @@ body {
 .hero-button {
     background-color: var(--lightgrey);
     padding: 1% 2%;
-    border-radius: 20px;
+    border-radius: 30px;
     width: 30%;
     height: 50;
     font-size: 1.5em;
@@ -159,5 +161,30 @@ body {
     a {
         text-decoration: none;
         list-style-type: none;
+    }
+}
+
+.hero-button:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-out, color 0.3s ease-out;
+    cursor: pointer;
+}
+
+footer {
+    background-color: var(--lightergrey);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 5%;
+    border-radius: 100px;
+    margin: 2% 5%;
+    text-align: center;
+
+    p {
+        color: black;
+    }
+
+    .contact-logo {
+        width: 3em;
     }
 }
