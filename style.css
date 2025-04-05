@@ -2,6 +2,7 @@
     --primary: black;
     --secondary: white;
     --primaryfont: "Poppins", sans-serif;   
+    --secondaryfont: "AR One Sans", sans-serif;
     --tertiary: #330000;
     --complementary: #ffcacc;
     --lightgrey: rgba(215, 215, 215, 0.42);
@@ -25,6 +26,10 @@ body {
     font-family: var(--primaryfont);
     margin: 0px;
     padding: 0px;
+}
+
+h1, h2, h3 {
+    font-family: var(--secondaryfont);
 }
 
 .nav-content {
@@ -135,7 +140,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 2%;
 }
 
 .hero-desc-container {
@@ -203,4 +207,89 @@ footer {
 .nav-logo-img {
     transition: transform 0.3s ease-in, color 0.3s ease-in;
     cursor: pointer;
+}
+
+/* QUIZ MAIN PAGE */
+
+.quiz-main {
+    background-image: url(images/quiz-choice-bg.png);
+    padding: 5% 0 5% 5%;
+}
+
+.quiz-header {
+    text-align: center;
+    margin-bottom: 7%;
+}
+
+.quiz-logo {
+    width: 20%;
+}
+
+.quiz-header-heading-container {
+    margin-top: 5%;
+}
+
+.quiz-header-heading {
+    font-size: 3em;
+    margin: 0;
+    line-height: 90%;
+}
+
+.quiz-header-subheading {
+    font-size: 1.5em;
+    font-weight: 200;
+    opacity: 0.7;
+}
+
+.quizzes-container {
+    display: flex;
+    overflow-x: auto; 
+    overflow: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory; 
+    gap: 1.5rem; 
+}
+
+.quiz-container {
+    display: flex;
+    flex: 0 0 22%; 
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;  
+    text-align: center;
+
+    label {
+        font-size: 1.25em;
+        font-weight: 500;
+        padding-top: 5%;
+    }
+}
+
+.quiz-container:hover {
+    opacity: 1;
+}
+
+.quiz-controls {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.previous-container, .next-container {
+    display: flex;
+    padding: 0 5%;
+    align-items: center;
+}
+
+.previous, .next {
+    padding: 0 20%;
+    margin: 0;
+}
+
+.subject-img {
+    border-radius: 20px;
+    aspect-ratio: 1 / 1;    
+    object-fit: cover;
+    width: 100%;
 }
