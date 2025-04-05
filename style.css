@@ -187,4 +187,20 @@ footer {
     .contact-logo {
         width: 3em;
     }
+    
+    .contact-logo, .soliquiz-logo {
+        transition: transform 0.3s ease-in, color 0.3s ease-in;
+        cursor: pointer;
+
+    }
+    
+    .contact-logo:hover, .soliquiz-logo:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease-out, color 0.3s ease-out;
+    }
+}
+
+.nav-logo-img {
+    transition: transform 0.3s ease-in, color 0.3s ease-in;
+    cursor: pointer;
 }
