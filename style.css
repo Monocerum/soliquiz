@@ -386,3 +386,55 @@ footer {
 #kurtCard {
     background: linear-gradient(180deg, #215621 0%, #0A1A0A 100%);
 }
+
+/* SCORE PAGE */
+.score-header .section-header-heading {
+    padding-bottom: 5%;
+}
+.score-container {
+    background: linear-gradient(109.93deg, #212020 15.7%, #575757 99.8%);
+    border-radius: 30px;
+    padding: 2% 2%;
+}
+
+.total-pts {
+    text-align: end;
+    margin: 0;
+}
+
+#totalScore {
+    font-weight: bold;
+}
+
+.score-table {
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.quiz-name, .table-subject-header {
+    text-align: start;
+}
+
+.quiz-score, .table-score-header {
+    text-align: end;
+}
+
+.quiz-name, .quiz-score {
+    font-size: 1.5em;
+}
+
+.table-subject-header, .table-score-header, .quiz-score {
+    font-weight: 200;
+    opacity: 0.7;
+}
+
+.score-row {
+    border-bottom: 1px solid #878787;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    padding: 1% 0;
+}
