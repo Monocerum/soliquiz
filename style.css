@@ -388,9 +388,14 @@ footer {
 }
 
 /* SCORE PAGE */
+.score-main {
+    min-height: 100vh;
+}
+
 .score-header .section-header-heading {
     padding-bottom: 5%;
 }
+
 .score-container {
     background: linear-gradient(109.93deg, #212020 15.7%, #575757 99.8%);
     border-radius: 30px;
