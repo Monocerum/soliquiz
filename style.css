@@ -195,7 +195,6 @@ footer {
     .contact-logo, .soliquiz-logo {
         transition: transform 0.3s ease-in, color 0.3s ease-in;
         cursor: pointer;
-
     }
     
     .contact-logo:hover, .soliquiz-logo:hover {
@@ -226,7 +225,15 @@ footer {
 }
 
 .quiz-logo {
+    transition: transform 0.3s ease-in, color 0.3s ease-in;
+    cursor: pointer;
+    text-align: center;
     width: 20%;
+}
+
+.quiz-logo:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-out, color 0.3s ease-out;
 }
 
 .quiz-header-heading-container {
@@ -247,6 +254,10 @@ footer {
 
 .quiz-selection {
     padding: 0 0 2% 5%;
+}
+
+.quiz-selector-header {
+    font-size: 1.5em;
 }
 
 .quizzes-container {
