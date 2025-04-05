@@ -3,6 +3,7 @@
     --secondary: white;
     --primaryfont: "Poppins", sans-serif;   
     --secondaryfont: "AR One Sans", sans-serif;
+    --tertiaryfont: "ABeeZee", sans-serif;
     --tertiary: #330000;
     --complementary: #ffcacc;
     --lightgrey: rgba(215, 215, 215, 0.42);
@@ -218,7 +219,7 @@ footer {
     background-size: cover;
 }
 
-.quiz-header {
+.section-header {
     text-align: center;
     margin-bottom: 7%;
     padding: 0 5%;
@@ -236,17 +237,17 @@ footer {
     transition: transform 0.3s ease-out, color 0.3s ease-out;
 }
 
-.quiz-header-heading-container {
+.section-header-heading-container {
     margin-top: 5%;
 }
 
-.quiz-header-heading {
+.section-header-heading {
     font-size: 5em;
     margin: 0;
     line-height: 90%;
 }
 
-.quiz-header-subheading {
+.section-header-subheading {
     font-size: 2em;
     font-weight: 200;
     opacity: 0.7;
@@ -311,4 +312,65 @@ footer {
     aspect-ratio: 1 / 1;    
     object-fit: cover;
     width: 100%;
+}
+
+/* ABOUT US */
+.abt-card-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.abt-card {
+    border-radius: 50px;
+    margin: 0;
+    align-items: center;
+    object-fit: cover;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    overflow: hidden;
+}
+.abt-text {
+    align-self: flex-start;
+    padding: 10% 2% 15% 10%;
+}
+
+.abt-name, .abt-role {
+    font-family: var(--tertiaryfont);
+    margin: 0;
+}
+
+.abt-name {
+    font-weight: normal;
+    font-size: 2em;
+}
+
+.abt-role {
+    font-weight: lighter;
+    font-size: 1.25em;
+}
+
+.abt-img {
+    height: 500px;
+}
+
+#leiCard {
+    background: linear-gradient(180deg, #26C9F3 0%, #187891 100%);
+}
+
+#roxCard {
+    background: linear-gradient(180deg, #00BA9B 0%, #009E83 100%);
+}
+
+#mikaCard {
+    background: linear-gradient(180deg, #E7809B 0%, #F33E6D 100%);
+}
+
+#bryllCard {
+    background: linear-gradient(180deg, #DC281E 0%, #981912 100%);
+}
+
+#kurtCard {
+    background: linear-gradient(180deg, #215621 0%, #0A1A0A 100%);
 }
