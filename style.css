@@ -317,8 +317,8 @@ footer {
 /* ABOUT US */
 .abt-card-container {
     display: flex;
-    width: 100%;
     justify-content: center;
+    width: 100%;
 }
 
 .abt-card {
@@ -354,6 +354,18 @@ footer {
 .abt-img {
     height: 500px;
 }
+
+.abt-btns {
+    text-align: center;
+}
+
+.abt-btn {
+    padding-top: 1%;
+    background: none;
+    border: none;
+}
+
+
 
 #leiCard {
     background: linear-gradient(180deg, #26C9F3 0%, #187891 100%);
