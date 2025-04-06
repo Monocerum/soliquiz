@@ -542,8 +542,75 @@ footer {
     cursor: pointer;
 }
 
+.quiz-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 2%;
+    align-items: center;
+}
+
+.home-link {
+    display: flex;
+    align-items: center;
+
+    .toggle-box {
+        padding-right: 20%;
+    }
+
+    .nav-link {
+        
+    }
+}
+
+.timer {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.timer-text {
+    font-size: 1.5em;
+}
+
+.question-container {
+    background: rgba(105, 140, 105, 0.6);
+    border-radius: 2em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 5% 5% 5%;
+    padding: 2% 0;
+    justify-content: center;
+}
+
+.question-number {
+    margin: 0;
+    font-size: 2em;
+}
+
+.question {
+    font-size: 1.5em;
+}
+
+.choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5%;
+    width: 80%;
+}
+
+.choice-container {
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+}
+
 .game-item {
     background-image: url(images/bg-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover  ;
 }
 
 .fade-out {
