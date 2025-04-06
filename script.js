@@ -9,6 +9,4 @@ document.addEventListener("DOMContentLoaded", () => {
             box.style.display = "none";
           }, 1000);
     })
-
-    
 })
