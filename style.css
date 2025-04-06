@@ -332,6 +332,7 @@ footer {
     flex-direction: column;
     overflow: hidden;
 }
+
 .abt-text {
     align-self: flex-start;
     padding: 10% 2% 15% 10%;
@@ -447,6 +448,28 @@ footer {
 
 /* QUIZ PAGES */
 
+.game-logo {
+    padding: 2% 0 0 2%;
+    margin: 0;
+    text-align: start;
+}
+
+.v2-header {
+    text-align: center;
+    
+    .section-header-heading-container  {
+        margin: 2% 0;
+    }
+
+    .quiz-header-subheading {
+        margin: 0;
+    }
+
+    .quiz-header-heading {
+        margin: 0 0 1% 0;
+    }
+}
+
 .quiz-header-subheading {
     font-family: var(--tertiaryfont);
     font-size: 3.2em;
@@ -457,4 +480,60 @@ footer {
     font-family: var(--quizheaderfont);
     font-size: 5em;
     font-weight: 200;
+}
+
+.v2-instructions {
+    display: flex;
+    align-items: flex-end;
+}
+
+.v2-instruction-container {
+    padding: 5%;
+    border-radius: 250px 0 0 50px;
+    display: flex;
+}
+
+.instructions {
+    padding-right: 5%;
+}
+
+.iai-instruction-container {
+    background: linear-gradient(234.94deg, #737D58 4.79%, #215621 56.06%);
+}
+
+.instruction-heading {
+    font-size: 2.25em;
+    font-weight: lighter;
+    font-family: var(--tertiaryfont);
+    opacity: 0.8;
+    margin: 0 0 5% 0;
+    text-align: center;
+}
+
+.instruction-list {
+    font-size: 1.5em;
+    font-weight: 300;
+    font-family: var(--tertiaryfont);
+    opacity: 0.5;
+    text-align: justify;
+}
+
+.quiz-start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.start-quiz-btn {
+    background-color: white;
+    border-radius: 25px;
+    border: none;
+    width: 100%;
+    color: black;
+    padding: 5% 10%;
+    font-weight: bold;
+    font-family: var(--tertiaryfont);
+    font-size: 1em;
+    margin-top: 5%;
+    cursor: pointer;
 }
