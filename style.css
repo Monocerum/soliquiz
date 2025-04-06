@@ -448,6 +448,10 @@ footer {
 
 /* QUIZ PAGES */
 
+#startScreen {
+    transition: opacity 1s ease;
+}
+
 .game-logo {
     padding: 2% 0 0 2%;
     margin: 0;
@@ -536,4 +540,17 @@ footer {
     font-size: 1em;
     margin-top: 5%;
     cursor: pointer;
+}
+
+.game-item {
+    background-image: url(images/bg-img.jpg);
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+/* TEMPORARY */
+#startScreen {
+    display: none;
 }
