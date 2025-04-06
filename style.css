@@ -8,6 +8,7 @@
     --complementary: #ffcacc;
     --lightgrey: rgba(215, 215, 215, 0.42);
     --lightergrey: #D9D9D9;
+    --quizheaderfont: "Anton", sans-serif;
 }
 
 html {
