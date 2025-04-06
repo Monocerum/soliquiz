@@ -444,3 +444,17 @@ footer {
     align-items: center;
     padding: 1% 0;
 }
+
+/* QUIZ PAGES */
+
+.quiz-header-subheading {
+    font-family: var(--tertiaryfont);
+    font-size: 3.2em;
+    font-weight: 200;
+}
+
+.quiz-header-heading {
+    font-family: var(--quizheaderfont);
+    font-size: 5em;
+    font-weight: 200;
+}
