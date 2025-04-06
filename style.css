@@ -629,6 +629,7 @@ footer {
 
 .question-img {
     width: 20em;
+    border-radius: 1em;
 }
 
 .question-controls {
