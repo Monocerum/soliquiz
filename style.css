@@ -577,6 +577,7 @@ footer {
     margin: 0 5% 5% 5%;
     padding: 2% 0;
     justify-content: center;
+    min-height: 20em;
 }
 
 .question-number {
@@ -649,13 +650,9 @@ footer {
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
+    display: none;
 }
 
 .fade-out {
     opacity: 0;
-}
-
-/* TEMPORARY */
-#startScreen {
-    display: none;
 }
