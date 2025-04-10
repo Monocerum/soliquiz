@@ -505,6 +505,15 @@ footer {
     background: linear-gradient(234.94deg, #737D58 4.79%, #215621 56.06%);
 }
 
+.se-instruction-container {
+    background: linear-gradient(234.94deg, rgba(220, 40, 30, 0.29) 4.79%, rgba(220, 40, 30, 0.645) 40.01%, #FF726A 102.63%);
+}
+
+.quiz-subject-photo {
+    width: 350px;
+    height: auto;
+}
+
 .instruction-heading {
     font-size: 2.25em;
     font-weight: lighter;
@@ -655,4 +664,10 @@ footer {
 
 .fade-out {
     opacity: 0;
+}
+
+.se-main {
+    .question-container {
+        background: rgba(220, 40, 30, 0.6);
+    }
 }
