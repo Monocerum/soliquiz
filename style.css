@@ -926,6 +926,10 @@ footer {
     .choice-container {
         text-align: center;
     }
+
+    .question-img {
+        width: 15em;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -957,10 +961,6 @@ footer {
 
     .choice-container {
         text-align: left;
-    }
-
-    .question-img {
-        width: 15em;
     }
 }
 
