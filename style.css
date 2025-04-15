@@ -114,6 +114,7 @@ h1, h2, h3 {
     display: flex;
 }
 
+/* INDEX */
 /* HERO SECTION */
 .hero {
     display: flex;
@@ -164,17 +165,31 @@ h1, h2, h3 {
     width: 30%;
     height: 50;
     font-size: 1.5em;
+    transition: transform 0.3s ease-out, background-color 0.3s ease-out, box-shadow 0.3s ease-out, color 0.3s ease-out;
 
     a {
         text-decoration: none;
         list-style-type: none;
+        transition: color 0.3s ease-out, font-weight 0.3s ease-out, text-shadow 0.3s ease-out;
+    }
+
+    &:hover {
+        transform: scale(1.1);
+        color: var(--primary);
+        cursor: pointer;
+        background-color: var(--tertiary);
+        box-shadow: 0 0 15px var(--complementary), 0 0 40px var(--complementary);
+    }
+
+    &:hover a{
+        color: var(--secondary);
+        font-weight: bold;
+        text-shadow: 0 0 15px var(--complementary), 0 0 40px var(--complementary);
     }
 }
 
-.hero-button:hover {
-    transform: scale(1.1);
-    transition: transform 0.3s ease-out, color 0.3s ease-out;
-    cursor: pointer;
+.mushroom-hero {
+    display: none;
 }
 
 footer {
@@ -210,6 +225,83 @@ footer {
     transition: transform 0.3s ease-in, color 0.3s ease-in;
     cursor: pointer;
 }
+
+/* RESPONSIVE STYLES */
+@media screen and (max-width: 1100px) {
+    .hero-desc {
+        p {
+            font-size: 0.75em;
+        }
+
+        .hero-button {
+            width: 40%;
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .hero-desc {
+        .plant1 {
+            display: none;
+        }
+
+        .hero-desc-bottom {
+            flex-direction: column;
+        }
+
+        .hero-desc-container {
+            padding: 5% 10% 0 10%;
+        }
+
+        .hero-button {
+            font-size: 1.25em;
+            margin: 5% 0;
+        }   
+    }
+
+    footer {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 800px) {
+}
+
+@media screen and (max-width: 650px) {
+    .hero-desc {
+
+        .hero-button {
+            font-size: 1.15em;
+            padding: 3% 8%;
+        }
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .hero-desc {
+        border-radius: 50px;
+
+        .plant2 {
+            display: none;
+        }
+
+        .mushroom-hero {
+            display: block;
+            width: 20%;
+            margin-top: 5%;
+        }
+
+        .hero-button {
+            padding: 3% 5%;
+            font-size: 1em;
+        }
+    }
+
+    footer {
+        border-radius: 50px;
+    }
+}
+
 
 /* QUIZ MAIN PAGE */
 
