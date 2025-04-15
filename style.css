@@ -165,13 +165,9 @@ h1, h2, h3 {
     width: 30%;
     height: 50;
     font-size: 1.5em;
-    transition: transform 0.3s ease-out, background-color 0.3s ease-out, box-shadow 0.3s ease-out, color 0.3s ease-out;
-
-    a {
-        text-decoration: none;
-        list-style-type: none;
-        transition: color 0.3s ease-out, font-weight 0.3s ease-out, text-shadow 0.3s ease-out;
-    }
+    transition: transform 0.3s ease-out, background-color 0.3s ease-out, box-shadow 0.3s ease-out, color 0.3s ease-out, font-weight 0.3s ease-out;
+    text-decoration: none;
+    list-style-type: none;
 
     &:hover {
         transform: scale(1.1);
@@ -179,12 +175,13 @@ h1, h2, h3 {
         cursor: pointer;
         background-color: var(--tertiary);
         box-shadow: 0 0 15px var(--complementary), 0 0 40px var(--complementary);
-    }
-
-    &:hover a{
-        color: var(--secondary);
-        font-weight: bold;
-        text-shadow: 0 0 15px var(--complementary), 0 0 40px var(--complementary);
+        
+        .start-btn {
+            color: var(--secondary);
+            font-weight: bold;
+            text-shadow: 0 0 15px var(--complementary), 0 0 40px var(--complementary);
+            transition: font-weight 0.3s ease-out;
+        }
     }
 }
 
@@ -269,7 +266,6 @@ footer {
 
 @media screen and (max-width: 650px) {
     .hero-desc {
-
         .hero-button {
             font-size: 1.15em;
             padding: 3% 8%;
