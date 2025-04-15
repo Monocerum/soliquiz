@@ -619,9 +619,14 @@ footer {
     text-align: justify;
 }
 
+.v2-instruction-img2 {
+    display: none;
+}
+
 .quiz-start {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -757,6 +762,115 @@ footer {
 .se-main {
     .question-container {
         background: rgba(220, 40, 30, 0.6);
+    }
+}
+
+/* RESPONSIVE STYLES */
+@media screen and (max-width: 1350px) {
+    .v2-instructions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .v2-instruction-img {
+        display: none;
+    }
+
+    .v2-instruction-img2 {
+        display: block;
+        margin-bottom: 15%;
+    }
+    
+    .v2-img-container {
+        overflow: visible;
+    }
+
+    #lakitu2 {
+        filter: drop-shadow(0px 15px 15px rgba(0, 97, 26, 1));
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .instruction-list {
+        font-size: 1.25em;
+    }
+
+    .instructions {
+        padding-left: 8%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .v2-instruction-container {
+        flex-direction: column;
+    }
+    
+    .instructions {
+        padding: 8% 10%;
+    }
+    
+    .start-quiz-btn {
+        width: 60%;
+    }
+}
+
+
+@media screen and (max-width: 750px) {
+    .section-header-heading-container {
+        padding: 0 10%;
+    }
+
+    .quiz-header-heading {
+        font-size: 3.5em;
+    }
+
+    .quiz-header-subheading {
+        font-size: 2.5em;
+    }
+    
+    .quiz-subject-photo {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .instruction-heading {
+        font-size: 1.75em;
+    }
+
+    .instruction-list {
+        font-size: 1em;
+    }
+
+    .v2-instruction-container {
+        border-radius: 200px 0 0 50px;
+    }
+
+    .game-logo {
+        text-align: center;
+        padding: 5% 0;
+    }
+    
+    .start-quiz-btn {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .quiz-header-heading {
+        font-size: 2.5em;
+    }
+
+    .quiz-header-subheading {
+        font-size: 2em;
+    }
+
+    .v2-instruction-container {
+        border-radius: 150px 0 0 50px;
+    }
+    
+    .quiz-subject-photo {
+        width: 250px;
     }
 }
 
@@ -983,6 +1097,6 @@ footer {
     cursor: pointer;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     margin-left: 2rem;
-    transform: translate(-10%, 400%); /* Adjusted to move the button lower */
+    transform: translate(-10%, 400%);
     z-index: 3;
 }
