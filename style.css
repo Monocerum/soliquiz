@@ -562,6 +562,10 @@ footer {
         padding: 7%;
         margin-top: 5%;
     }
+
+    .section-header-heading {
+        font-size: 3.75em;
+    }
     
     .quiz-name, .quiz-score {
         font-size: 1.25em;
