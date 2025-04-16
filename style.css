@@ -747,6 +747,17 @@ footer {
     }
 }
 
+
+.start-quiz-btn2, .start-quiz-btn3 {
+        &:hover {
+            color: var(--white);
+            cursor: pointer;
+            box-shadow: 0 0 15px var(--lightergreen), 0 0 40px var(--lightergreen);
+            font-weight: bolder;
+            text-shadow: 0 0 15px var(--lightergreen), 0 0 40px var(--lightergreen);
+        }
+    }
+
 .quiz-nav {
     display: flex;
     justify-content: space-between;
@@ -783,6 +794,30 @@ footer {
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin: 0 5% 5% 5%;
+    padding: 2% 0;
+    justify-content: center;
+    min-height: 20em;
+}
+
+.question-container2 {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 2em;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin: 0 5% 5% 5%;
+    padding: 2% 0;
+    justify-content: center;
+    min-height: 20em;
+}
+
+.left-question{
+    background: rgba(105, 140, 105, 0.6);
+    border-radius: 2em;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
     margin: 0 5% 5% 5%;
     padding: 2% 0;
     justify-content: center;
@@ -854,6 +889,18 @@ footer {
     text-align: center;
 }
 
+.question-item2 {
+    display: flex;
+    flex: 0 0 10%; 
+    flex-direction: row;
+    align-items: center;
+    opacity: 1;
+    width: 30px;
+    transition: opacity 0.3s ease;  
+    text-align: center;
+    cursor: pointer;
+}
+
 .question-item:hover {
     opacity: 1;
 }
@@ -877,6 +924,14 @@ footer {
 
 .game-item {
     background-image: url(images/bg-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    display: none;
+}
+
+.game-item2 {
+    background-color: #000000;
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
