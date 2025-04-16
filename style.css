@@ -1133,6 +1133,14 @@ footer {
     margin: 0;
 }
 
+.quiz-header-headingV3 {
+    font-family: var(--quizheaderfont);
+    font-size: 9.5em;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
 .wd-v2-instructions {
     display: flex;
     align-items: center;
@@ -1200,6 +1208,14 @@ footer {
     justify-content: center;
 }
 
+.ready-text-container-trivia {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:left;
+    transform: translate(-28%, -23%);
+}
+
 .ready-text {
     font-size: 3.5rem;
     font-weight: bold;
@@ -1231,6 +1247,16 @@ footer {
     z-index: 2;
 }
 
+.v2-instruction-img-trivia {
+    position: absolute;
+    top: -91px;
+    bottom: 0;
+    right: 7px;
+    width: 650px;
+    transform: translate(28%, -23%);
+    z-index: 2;
+}
+
 .quiz-start-container-wd {
     display: flex;
     flex-direction: column;
@@ -1259,6 +1285,17 @@ footer {
     margin-top: 1rem;
 }
 
+.quiz-start-trivia {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+
 .v2-header-img-wd {
     position: absolute;
     width: 980px;
@@ -1273,6 +1310,14 @@ footer {
     top: -290px;
     z-index: 1;
     transform: translate(80%, 30%);
+}
+
+.v2-header-img-trivia {
+    position: absolute;
+    width: 930px;
+    top: -290px;
+    z-index: 1;
+    transform: translate(40%, 22%);
 }
 
 .v2-header-img2-wd {
@@ -1290,6 +1335,15 @@ footer {
     z-index: 1;
     transform: translate(36%, 550%);
 }
+
+.v2-header-img2-trivia {
+    position: absolute;
+    width: 150px;
+    top: -290px;
+    z-index: 1;
+    transform: translate(-86%, 550%);
+}
+
 
 .quiz-start-wd p {
     position: absolute;
@@ -1311,6 +1365,16 @@ footer {
     white-space: nowrap;
 }
 
+.quiz-start-trivia p {
+    position: absolute;
+    font-size: 1em;
+    font-weight: 200;
+    font-family: var(--tertiaryfont);
+    color: white;
+    transform: translate(-110%, 2320%);
+    white-space: nowrap;
+}
+
 .quiz-subject-photo-wd {
     position: absolute;
     width: 250px;
@@ -1329,6 +1393,16 @@ footer {
     left: 7px;
     border-radius: 10px;
     transform: translate(5%, -5%);
+}
+
+.quiz-subject-photo-trivia {
+    position: absolute;
+    width: 280px;
+    top: 0px;
+    bottom: 0;
+    left: 7px;
+    border-radius: 10px;
+    transform: translate(-100%, -5%);
 }
 
 .start-quiz-btn2 {
@@ -1365,6 +1439,6 @@ footer {
     cursor: pointer;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     margin-left: 2rem;
-    transform: translate(-220%, 410%);
+    transform: translate(-220%, 420%);
     z-index: 3;
 }
