@@ -841,7 +841,7 @@ footer {
 }
 
 .choice-container {
-    background: rgba(255, 255, 255, 0.25);
+    background: #ffffff40;
     border-radius: 20px;
     padding: 0 5%;
     display: flex;
@@ -852,6 +852,11 @@ footer {
 .choice-container.selected {
     background-color: #b3d9ff;
     border-color: #3399ff;
+}
+
+button:disabled {
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 .iai-main {

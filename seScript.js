@@ -149,40 +149,54 @@ document.addEventListener("DOMContentLoaded", () => {
     function loadQuestion(index) {
         const questionContent = quizContents[index];
         const choicesContent = document.querySelector(".choices");
-
+    
         selectedChoice = answers[index];
         document.querySelector(".question-number").textContent = `QUESTION NO. ${questionContent.number}`;
         document.querySelector(".question").textContent = questionContent.question;
-
+    
         choicesContent.innerHTML = "";
+    
+        nextBtn.disabled = true;
 
         questionContent.choices.forEach(choiceText => {
             const choiceContainer = document.createElement("div");
             choiceContainer.classList.add("choice-container");
-
+    
             const choiceContent = document.createElement("p");
             choiceContent.classList.add("choice");
             choiceContent.textContent = choiceText;
-
+    
             choiceContainer.appendChild(choiceContent);
             choicesContent.appendChild(choiceContainer);
-
+    
             if (selectedChoice === choiceText) {
                 choiceContainer.classList.add("selected");
+                nextBtn.disabled = false; // Enables NEXT if an answer is already selected.
             }
-
             choiceContainer.addEventListener("click", () => {
                 document.querySelectorAll(".choice-container").forEach(c => c.classList.remove("selected"));
                 choiceContainer.classList.add("selected");
                 selectedChoice = choiceText;
                 answers[index] = selectedChoice;
-
+    
                 if (selectedChoice === questionContent.answer) {
                     score++;
                 }
+
+                nextBtn.disabled = false;
+
+                setTimeout(() => {
+                    if (currentQ < quizContents.length - 1) {
+                        currentQ++;
+                        loadQuestion(currentQ);
+                    } else {
+                        clearInterval(timerInterval);
+                        endQuiz();
+                    }
+                }, 500);
             });
         });
-
+    
         startTimer();
     }
 
