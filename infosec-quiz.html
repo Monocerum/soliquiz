@@ -8,46 +8,121 @@
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=AR+One+Sans:wght@400..700&family=Anton&family=Bowlby+One+SC&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="infosecScript.js"></script>
     <title>Information Assurance and Security Quiz | Soliquiz</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="nav-content">
-                <div class="nav-logo">
-                    <a href=# class="nav-logo"><img src="images/logo.svg" alt="Logo of Soliquiz" class="nav-logo-img"></a>
+    <main class="wd-main v2-main">
+        <article id="startScreenV2">
+            <section class="game-logoV2">
+                <a href="index.html" class="soliquiz-logoV2"><img src="images/logo.svg" alt="Logo of Soliquiz" class="nav-logo-imgV2"></a>
+            </section>
+            <section class="main-content-rowV2">
+                <section class="wd-v2-instructions">
+                    <div class="v2-instruction-container wd-instruction-container">
+                        <div class="wd-instructions">
+                            <h5 class="wd-instruction-heading">Instructions</h5>
+                            <ol class="wd-instruction-list">
+                                <li class="instruction-item">The quiz consists of 20 questions.</li>
+                                <li class="instruction-item">Each question has multiple-choice answers—select the correct one.</li>
+                                <li class="instruction-item">You cannot go back to previous questions.</li>
+                                <li class="instruction-item">Your final score will be displayed at the end.</li>
+                                <li class="instruction-item">The program will automatically proceed to the next question once an answer is selected.</li>
+                            </ol>
+                            <div class="wd-ready">
+                                <div class="ready-text-container">
+                                    <span class="ready-text">Ready?</span>
+                                    <span class="start-prompt">Click "Start Quiz"!</span>
+                                </div>
+                                <img src="images/elements/element1-img.png" alt="Photo of Kirby" class="v2-instruction-img-ias">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="wd-header v2-header">
+                    <div class="section-header-text">
+                        <div class="section-header-heading-containerV2">
+                            <h2 class="quiz-header-subheadingV2">WELCOME TO</h2>
+                            <h2 class="quiz-header-headingV2">INFORMATION ASSURANCE</h2>
+                            <h2 class="quiz-header-headingV2"> AND SECURITY QUIZ</h2>
+                            <div class="quiz-start-ias">
+                                <img src="images/elements/element2-img.png" alt="Photo of Toad" class="v2-header-img-ias">
+                                <div class="quiz-start-container-wd">
+                                    <img src="images/subject-cover/infosecCover-img.jpg" alt="Subject Cover of InfoSec" class="quiz-subject-photo-ias">
+                                </div>
+                                <img src="images/elements/element6-img.png" alt="Mushroom and Coin" class="v2-header-img2-ias">
+                                <p>Goodluck Folks!</p>
+                            </div>
+                            <button class="start-quiz-btn3" id="startQuizBtn">START QUIZ</button> 
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </article>
+        <article class="game-item">
+            <div class="quiz-nav">
+                <div class="home-link">
+                    <img src="images/menu-box.png" alt="" class="toggle-box">
+                    <a href="index.html" class="nav-link">Home</a>
                 </div>
-                <div class="nav-right">
-                    <div class="nav-links">
-                        <ul class="nav-list">
-                            <li class="nav-item" id="navHome"><a href="index.html" class="nav-link">Home</a></li>
-                            <li class="nav-item" id="navAbout"><a href="about.html" class="nav-link">About Us</a></li>
-                            <li class="nav-item" id="navScores"><a href="scores.html" class="nav-link">Scores</a></li>
-                        </ul>
-                    </div>
-                    <div class="nav-toggle">
-                        <img src="images/menu-box.png" alt="" class="toggle-box">
-                    </div>
+                <div class="quiz-item-logo">
+                    <img src="images/logo.svg" alt="Logo of Soliquiz" class="quiz-item-logo-img">
+                </div>
+                <div class="timer">
+                    <p class="timer-text"><span class="timer-js">2:00</span> min</p>
+                    <img src="images/elements/timer.svg" alt="Icon of Clock" class="timer-img">
                 </div>
             </div>
-        </nav>
-    </header>
-    <main>
-        
+            <section class="question-container">
+                <h5 class="question-number"></h5>
+                <p class="question"></p>
+                <div class="choices"></div>
+            </section>
+            <section class="question-selection">
+                <div class="questions-container">
+                    <div class="question-item">
+                        <img src="images/number-cover/cover1-img.png" alt="Cover for Question No. 1: Mario and Luigi" class="question-img" id="Q1">
+                    </div>
+                    <div class="question-item">
+                        <img src="images/number-cover/cover2-img.png" alt="Cover for Question No. 2: Link" class="question-img" id="Q2">
+                    </div>
+                    <div class="question-item">
+                        <img src="images/number-cover/cover3-img.png" alt="Cover for Question No. 3: Kirby" class="question-img" id="Q3">
+                    </div>
+                    <div class="question-item">
+                        <img src="images/number-cover/cover4-img.png" alt="Cover for Question No. 4: Minecraft" class="question-img" id="Q4">
+                    </div>
+                    <div class="question-item">
+                        <img src="images/number-cover/cover5-img.png" alt="Cover for Question No. 5: Donkey Kong" class="question-img" id="Q5">
+                    </div>
+                    <div class="question-item">
+                        <img src="images/number-cover/cover6-img.png" alt="Cover for Question No. 6: Sonic" class="question-img" id="Q6">
+                    </div>
+                    <div class="question-item">
+                        <img src="images/number-cover/cover7-img.png" alt="Cover for Question No. 7: Super Mario" class="question-img" id="Q7">
+                    </div>
+                    <div class="question-item">
+                        <img src="images/number-cover/cover8-img.png" alt="Cover for Question No. 8: Princess Peach" class="question-img" id="Q8">
+                    </div>
+                    <div class="question-item">
+                        <img src="images/number-cover/cover9-img.png" alt="Cover for Question No. 9: Pokemon" class="question-img" id="Q9">
+                    </div>
+                    <div class="question-item">
+                        <img src="images/number-cover/cover10-img.png" alt="Cover for Question No. 10: Luigi" class="question-img" id="Q10">
+                    </div>
+                </div>
+                <div class="question-controls">
+                    <div class="previous-container">
+                        <a href="#" class="previous round">&#8249;</a>
+                        <p>Previous</p>
+                    </div>
+                    <div class="next-container">
+                        <p>Next</p>
+                        <a href="#" class="next round">&#8250;</a>
+                    </div>
+                </div>
+            </section>
+        </article>
     </main>
-    <footer>
-        <div class="footer-logo">
-            <a href=#><img src="images/soliquiz-logo.svg" alt="Logo of Soliquiz" class="soliquiz-logo"></a>
-        </div>
-        <div class="footer-copyright">
-            <p>&copy; 2024 Soliquiz. All Rights Reserved. <br> Unauthorized use or reproduction of content is strictly prohibited.</p>
-        </div>
-        <div class="footer-contacts">
-            <a href="https://www.facebook.com/" target="_blank" class="contact-img"><img src="images/fb-logo.png" alt="Logo of Facebook" class="contact-logo"></a>
-            <a href="https://www.instagram.com/" target="_blank" class="contact-img"><img src="images/ig-logo.png" alt="Logo of Instagram" class="contact-logo"></a>
-            <a href="https://x.com/?lang=en" target="_blank" class="contact-img"><img src="images/twitter-logo.png" alt="Logo of Twitter" class="contact-logo"></a>
-        </div>
-    </footer>
 </body>
 </html>
