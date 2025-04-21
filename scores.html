@@ -53,9 +53,11 @@
                     <tbody>
                         <tr class="score-row">
                             <td class="quiz-name">Web Development</td>
-                            <td class="quiz-score">10 pts</td>
+                            <td class="quiz-score" id="webDevScore">10 pts</td>
+
                         </tr>
                     </tbody>
+                    
                 </table>
             </div>
         </section>
@@ -73,5 +75,22 @@
             <a href="https://x.com/?lang=en" target="_blank" class="contact-img"><img src="images/twitter-logo.png" alt="Logo of Twitter" class="contact-logo"></a>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the score from localStorage
+            const savedScore = localStorage.getItem('quizScore');
+    
+            if (savedScore !== null) {
+                // Update individual subject score (e.g., Web Development)
+                document.getElementById("webDevScore").innerText = `${savedScore} pts`;
+    
+                // Update total score
+                document.getElementById("totalScore").innerText = savedScore;
+            }
+        });
+    </script>
+    
+    
 </body>
 </html>

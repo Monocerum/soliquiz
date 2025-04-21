@@ -1497,3 +1497,78 @@ footer {
     transform: translate(-220%, 420%);
     z-index: 3;
 }
+
+
+/* Base styling for choice containers */
+.choice-container {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 35px;
+    border-left: 4px solid transparent;
+}
+
+/* Normal hover state */
+.choice-container:hover {
+    background-color: #f0f0f04b;
+    transform: translateX(5px);
+}
+
+/* Active (clicked) state */
+.choice-container.active {
+    background-color: #c42b05b0;
+    /* border-left: 4px solid #d6dce0; */
+}
+
+/* Active hover state (when hovering over a selected choice) */
+.choice-container.active:hover {
+    background-color: #c42b05b0;
+}
+
+/* Clicking state (when mouse button is held down) */
+.choice-container.clicking {
+    background-color: #ffb399;
+    transform: scale(0.98);
+}
+
+/* Selected state */
+.choice-container.selected {
+    background-color: #c42b05b0;
+}
+
+/* Answered question indication in navigation */
+.answered {
+    opacity: 0.7;
+}
+
+/* Results section styling */
+.results-heading {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.results-score {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.restart-btn {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    padding: 10px 15px;
+    background-color: #c42b05b0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.restart-btn:hover {
+    background-color: #45a049;
+}
