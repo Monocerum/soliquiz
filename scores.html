@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=AR+One+Sans:wght@400..700&family=Anton&family=Bowlby+One+SC&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
     <title>Scores | Soliquiz</title>
 </head>
 <body>
@@ -16,7 +15,7 @@
         <nav>
             <div class="nav-content">
                 <div class="nav-logo">
-                    <a href=# class="nav-logo"><img src="images/logo.svg" alt="Logo of Soliquiz" class="nav-logo-img"></a>
+                    <a href="index.html" class="nav-logo"><img src="images/logo.svg" alt="Logo of Soliquiz" class="nav-logo-img"></a>
                 </div>
                 <div class="nav-right">
                     <div class="nav-links">
@@ -42,7 +41,7 @@
             </div>
             <div class="score-container">
                 <div class="total-container">
-                    <p class="total-pts">total points: <span id="totalScore">58</span> pts</p>
+                    <p class="total-pts">total points: <span id="totalScore">0</span> pts</p>
                 </div>
                 <table class="score-table">
                     <thead>
@@ -51,11 +50,8 @@
                             <th class="table-score-header">Scores</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class="score-row">
-                            <td class="quiz-name">Web Development</td>
-                            <td class="quiz-score">10 pts</td>
-                        </tr>
+                    <tbody id="scoreTableBody">
+                        <!-- Score rows will be added here dynamically -->
                     </tbody>
                 </table>
             </div>
@@ -63,7 +59,7 @@
     </main>
     <footer>
         <div class="footer-logo">
-            <a href=#><img src="images/soliquiz-logo.svg" alt="Logo of Soliquiz" class="soliquiz-logo"></a>
+            <a href="index.html"><img src="images/soliquiz-logo.svg" alt="Logo of Soliquiz" class="soliquiz-logo"></a>
         </div>
         <div class="footer-copyright">
             <p>&copy; 2024 Soliquiz. All Rights Reserved. <br> Unauthorized use or reproduction of content is strictly prohibited.</p>
@@ -74,5 +70,56 @@
             <a href="https://x.com/?lang=en" target="_blank" class="contact-img"><img src="images/twitter-logo.png" alt="Logo of Twitter" class="contact-logo"></a>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (localStorage.getItem('quizScores') === null) {
+                localStorage.setItem('quizScores', JSON.stringify([]));
+            }
+            
+           
+            let scores = JSON.parse(localStorage.getItem('quizScores'));
+            const newScore = localStorage.getItem('quizScore');
+            const newSubject = localStorage.getItem('quizName');
+            
+            if (newScore !== null && newSubject !== null) {
+                scores.push({
+                    subject: newSubject,
+                    score: parseInt(newScore)
+                });
+            
+                localStorage.setItem('quizScores', JSON.stringify(scores));
+                localStorage.removeItem('quizScore');
+                localStorage.removeItem('quizName');
+            }
+            
+            // Display all scores
+            const scoreTableBody = document.getElementById('scoreTableBody');
+            scoreTableBody.innerHTML = ''; 
+            
+            let totalScore = 0;
+            
+            scores.forEach(item => {
+                totalScore += item.score;
+                const row = document.createElement('tr');
+                row.className = 'score-row';
+                
+              
+                const subjectCell = document.createElement('td');
+                subjectCell.className = 'quiz-name';
+                subjectCell.textContent = item.subject;
+                row.appendChild(subjectCell);
+                
+                const scoreCell = document.createElement('td');
+                scoreCell.className = 'quiz-score';
+                scoreCell.textContent = `${item.score} pts`;
+                row.appendChild(scoreCell);
+                
+                scoreTableBody.appendChild(row);
+            });
+            
+            document.getElementById('totalScore').textContent = totalScore;
+        });
+    </script>
 </body>
 </html>

@@ -2,16 +2,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const startBtn = document.getElementById("startQuizBtn");
     const startScreen = document.getElementById("startScreen");
     const gameItem = document.querySelector(".game-item");
-    const timerElement = document.querySelector(".timer-js");
-    const nextBtn = document.querySelector(".next");
-    const prevBtn = document.querySelector(".previous");
-    
-    let currentQ = 0;
     let score = 0;
-    let selectedChoice = null;
-    let timerInterval;
-    const timePerQuestion = 120;
-    let timeRemaining = timePerQuestion;
+    let selectedAnswers = [];
+    let currentQ = 0;
+
+    // Correct answers (index of the correct option for each question, 0-based)
+    const correctAnswers = [1, 2, 2, 3, 0, 2, 1, 3, 2, 1];
+
+    startBtn.addEventListener("click", () => {
+        startScreen.classList.add("fade-out");
+        startScreen.style.display = "none";
+        gameItem.style.display = "block";
+        startTimer();
+    });
 
     const quizContents = [
         {
@@ -21,20 +24,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 "To mimic human emotions",
                 "To create intelligent entities that can reason and act rationally",
                 "To replace human workers in all industries",
-                "To design aesthetically pleasing robots"
-            ],
-            answer: "To create intelligent entities that can reason and act rationally"
+                "To develop supercomputers with vast processing power"
+            ]
         },
         {
             number: 2,
-            question: "Which of the following is NOT one of the four approaches to defining AI",
+            question: "Which of the following is NOT one of the four approaches to defining AI?",
             choices: [
                 "Thinking humanly",
                 "Acting rationally",
                 "Thinking creatively",
                 "Acting humanly"
-            ],
-            answer: "Thinking creatively"
+            ]
         },
         {
             number: 3,
@@ -44,8 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "A computer's ability to produce artistic works",
                 "A computer's ability to exhibit intelligent behavior indistinguishable from a human",
                 "A computer's speed in processing data"
-            ],
-            answer: "A computer's ability to exhibit intelligent behavior indistinguishable from a human"
+            ]
         },
         {
             number: 4,
@@ -55,19 +55,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Knowledge representation",
                 "Machine learning",
                 "Physical simulation of a human body"
-            ],
-            answer: "Physical simulation of a human body"
+            ]
         },
         {
             number: 5,
-            question: "What is meant by ""rationality"" in AI?",
+            question: "What is meant by \"rationality\" in AI?",
             choices: [
-                "Acting based on emotions rather than logic",
-                "Doing the right thing based on available information",
-                "Mimicking human rational behaviors",
-                "Achieving the best result in all tasks based on goals"
-            ],
-            answer: "Doing the right thing based on available information"
+                "Acting to achieve the best outcome or best expected outcome",
+                "Processing information using logical rules only",
+                "Imitating human decision-making processes",
+                "Calculating the mathematical probability of all outcomes"
+            ]
         },
         {
             number: 6,
@@ -77,8 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Partially observable and deterministic",
                 "Fully observable and deterministic",
                 "Partially observable and stochastic"
-            ],
-            answer: "Fully observable and deterministic"
+            ]
         },
         {
             number: 7,
@@ -88,8 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Philosophy",
                 "Biology",
                 "Criminology"
-            ],
-            answer: "Philosophy"
+            ]
         },
         {
             number: 8,
@@ -98,9 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Rational agents focus solely on replicating human thought processes",
                 "Rational agents aim to pass the Turing Test exclusively",
                 "Rational agents are limited to solving mathematical problems only",
-                " Rational agents prioritize achieving ideal outcomes over mimicking humans"
-            ],
-            answer: " Rational agents prioritize achieving ideal outcomes over mimicking humans"
+                "Rational agents prioritize achieving ideal outcomes over mimicking humans"
+            ]
         },
         {
             number: 9,
@@ -110,8 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Planning, Environment, Actions, Sensors",
                 "Performance, Environment, Actuators, Sensors",
                 "Perception, Environment, Actions, State"
-            ],
-            answer: "Performance, Environment, Actuators, Sensors"
+            ]
         },
         {
             number: 10,
@@ -121,117 +115,246 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Simple reflex agent",
                 "Model-based agent",
                 "Learning agent"
-            ],
-            answer: "Simple reflex agent"
+            ]
         }
     ];
-
-    // Tracks answers
-    const answers = new Array(quizContents.length).fill(null);
-
-    function startTimer() {
-        clearInterval(timerInterval);
-        timeRemaining = timePerQuestion;
-
-        timerInterval = setInterval(() => {
-            timeRemaining--;
-            const minutes = Math.floor(timeRemaining / 60);
-            const seconds = timeRemaining % 60;
-            timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
-            if (timeRemaining <= 0) {
-                clearInterval(timerInterval);
-                alert("Time's up for this question!");
-                nextBtn.click();
-            }
-        }, 1000);
-    }
-
+    
     function loadQuestion(index) {
+        // Make sure index is within bounds
+        if (index < 0) {
+            index = 0;
+        } else if (index >= quizContents.length) {
+            showResults();
+            return;
+        }
+        
         const questionContent = quizContents[index];
         const choicesContent = document.querySelector(".choices");
     
-        selectedChoice = answers[index];
         document.querySelector(".question-number").textContent = `QUESTION NO. ${questionContent.number}`;
         document.querySelector(".question").textContent = questionContent.question;
     
         choicesContent.innerHTML = "";
     
-        nextBtn.disabled = true;
-
-        questionContent.choices.forEach(choiceText => {
+        questionContent.choices.forEach((choiceText, choiceIndex) => {
             const choiceContainer = document.createElement("div");
             choiceContainer.classList.add("choice-container");
     
             const choiceContent = document.createElement("p");
             choiceContent.classList.add("choice");
             choiceContent.textContent = choiceText;
-    
+
+            if (selectedAnswers[index] === choiceIndex) {
+                choiceContainer.classList.add("selected");
+            }
+            
             choiceContainer.appendChild(choiceContent);
             choicesContent.appendChild(choiceContainer);
-    
-            if (selectedChoice === choiceText) {
-                choiceContainer.classList.add("selected");
-                nextBtn.disabled = false; // Enables NEXT if an answer is already selected.
-            }
+            
+            
             choiceContainer.addEventListener("click", () => {
-                document.querySelectorAll(".choice-container").forEach(c => c.classList.remove("selected"));
+                document.querySelectorAll(".choice-container").forEach(c => {
+                    c.classList.remove("selected");
+                    c.classList.remove("active");
+                });
+                
+                
                 choiceContainer.classList.add("selected");
-                selectedChoice = choiceText;
-                answers[index] = selectedChoice;
-    
-                if (selectedChoice === questionContent.answer) {
+                choiceContainer.classList.add("active");
+                
+                
+                selectedAnswers[index] = choiceIndex;
+
+                if (choiceIndex === correctAnswers[index]) {
                     score++;
                 }
-
-                nextBtn.disabled = false;
-
+                
+                
+                document.getElementById(`Q${index + 1}`).parentElement.classList.add("answered");
+                
+                
                 setTimeout(() => {
-                    if (currentQ < quizContents.length - 1) {
+                    if (index < quizContents.length - 1) {
                         currentQ++;
                         loadQuestion(currentQ);
                     } else {
-                        clearInterval(timerInterval);
-                        endQuiz();
+                        showResults();
                     }
-                }, 500);
+                }, 1000);
+            });
+
+            choiceContainer.addEventListener("mousedown", () => {
+                choiceContainer.classList.add("clicking");
+            });
+
+            choiceContainer.addEventListener("mouseup", () => {
+                choiceContainer.classList.remove("clicking");
+            });
+
+            choiceContainer.addEventListener("mouseleave", () => {
+                choiceContainer.classList.remove("clicking");
             });
         });
-    
-        startTimer();
+        
+        document.querySelector(".previous").style.visibility = index === 0 ? "hidden" : "visible";
+        document.querySelector(".next").style.visibility = index === quizContents.length - 1 ? "hidden" : "visible";
+        
+        updateQuestionSlider(index);
     }
 
-    nextBtn.addEventListener("click", () => {
-        if (!answers[currentQ]) {
-            alert("Please select an answer before proceeding.");
-            return;
+    function updateQuestionSlider(currentIndex) {
+        document.querySelectorAll('.question-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        const currentQuestionItem = document.querySelector(`.question-item:nth-child(${currentIndex + 1})`);
+        if (currentQuestionItem) {
+            currentQuestionItem.classList.add('active');
         }
 
+        const questionsContainer = document.querySelector('.questions-container');
+        const activeQuestion = document.querySelector('.question-item.active');
+        
+        if (questionsContainer && activeQuestion) {
+            const containerWidth = questionsContainer.offsetWidth;
+            const activeQuestionOffset = activeQuestion.offsetLeft;
+            const activeQuestionWidth = activeQuestion.offsetWidth;
+            
+            const scrollPosition = activeQuestionOffset - (containerWidth / 2) + (activeQuestionWidth / 2);
+
+            questionsContainer.scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    function showResults() {           
+        quizName = "Introduction To Ai";      
+        const questionContainer = document.querySelector(".question-container");                 
+        questionContainer.innerHTML = `                     
+            <h3 class="results-heading">Quiz Completed!</h3>                     
+            <p class="results-score">Your score: ${score} out of ${quizContents.length}</p>                     
+            <button class="restart-btn">Restart Quiz</button>                 
+        `;                              
+        
+        localStorage.setItem('quizScore', score);                 
+        localStorage.setItem('quizName', quizName);                           
+        
+        document.querySelector(".question-selection").style.display = "none";                              
+        
+        document.querySelector(".restart-btn").addEventListener("click", () => {                     
+            // localStorage.removeItem('quizScore');
+            // localStorage.removeItem('quizName');  // Also remove quizName on restart                     
+            location.reload();                 
+        });             
+    }
+    
+    function startTimer() {
+        let totalSeconds = 120; 
+        const timerElement = document.querySelector(".timer-js");
+        
+        const timerInterval = setInterval(() => {
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            
+            timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            
+            if (totalSeconds <= 0) {
+                clearInterval(timerInterval);
+                showResults();
+            }
+            
+            totalSeconds--;
+        }, 1000);
+    }
+
+ 
+    const questionsContainer = document.querySelector('.questions-container');
+    if (questionsContainer) {
+        questionsContainer.style.display = 'flex';
+        questionsContainer.style.overflowX = 'auto';
+        questionsContainer.style.scrollBehavior = 'smooth';
+        questionsContainer.style.padding = '10px 0';
+        questionsContainer.style.scrollbarWidth = 'none'; // Hide scrollbar in Firefox
+        questionsContainer.style.msOverflowStyle = 'none'; // Hide scrollbar in IE/Edge
+        
+        // Hide scrollbar in Chrome/Safari
+        const style = document.createElement('style');
+        style.textContent = `
+            .questions-container::-webkit-scrollbar {
+                display: none;
+            }
+            .question-item {
+                flex: 0 0 auto;
+                margin: 0 10px;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+                cursor: pointer;
+            }
+            .question-item.active {
+                transform: scale(1.2);
+                z-index: 10;
+                position: relative;
+            }
+            .question-item:not(.active) {
+                opacity: 0.7;
+            }
+            .question-item.answered {
+                position: relative;
+            }
+            .question-item.answered::after {
+                content: '✓';
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                background-color: green;
+                color: white;
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    document.querySelectorAll('.question-item').forEach((item, idx) => {
+        item.addEventListener('click', () => {
+            currentQ = idx;
+            loadQuestion(currentQ);
+        });
+    });
+    
+    document.querySelector(".next").addEventListener("click", () => {
         if (currentQ < quizContents.length - 1) {
             currentQ++;
             loadQuestion(currentQ);
-        } else {
-            clearInterval(timerInterval);
-            endQuiz();
         }
     });
 
-    prevBtn.addEventListener("click", () => {
+    document.querySelector(".previous").addEventListener("click", () => {
         if (currentQ > 0) {
             currentQ--;
             loadQuestion(currentQ);
         }
     });
 
-    function endQuiz() {
-        clearInterval(timerInterval);
-        alert(`Quiz complete!\nYour score: ${score}/${quizContents.length}`);
-    }
+    loadQuestion(currentQ);
+});
 
-    startBtn.addEventListener("click", () => {
-        startScreen.classList.add("fade-out");
-        startScreen.style.display = "none";
-        gameItem.style.display = "block";
-
+document.querySelector(".next").addEventListener("click", () => {
+    if (currentQ < quizContents.length - 1) {
+        currentQ++;
         loadQuestion(currentQ);
-    });
+    }
+});
+
+document.querySelector(".previous").addEventListener("click", () => {
+    if (currentQ > 0) {
+        currentQ--;
+        loadQuestion(currentQ);
+    }
 });
