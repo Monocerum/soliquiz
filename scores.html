@@ -41,7 +41,7 @@
             </div>
             <div class="score-container">
                 <div class="total-container">
-                    <p class="total-pts">total points: <span id="totalScore">58</span> pts</p>
+                    <p class="total-pts">total points: <span id="totalScore">0</span> pts</p>
                 </div>
                 <table class="score-table">
                     <thead>
@@ -50,14 +50,9 @@
                             <th class="table-score-header">Scores</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class="score-row">
-                            <td class="quiz-name">Web Development</td>
-                            <td class="quiz-score" id="webDevScore">10 pts</td>
-
-                        </tr>
+                    <tbody id="scoreTableBody">
+                        <!-- Score rows will be added here dynamically -->
                     </tbody>
-                    
                 </table>
             </div>
         </section>
@@ -78,19 +73,53 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Get the score from localStorage
-            const savedScore = localStorage.getItem('quizScore');
-    
-            if (savedScore !== null) {
-                // Update individual subject score (e.g., Web Development)
-                document.getElementById("webDevScore").innerText = `${savedScore} pts`;
-    
-                // Update total score
-                document.getElementById("totalScore").innerText = savedScore;
+            if (localStorage.getItem('quizScores') === null) {
+                localStorage.setItem('quizScores', JSON.stringify([]));
             }
+            
+           
+            let scores = JSON.parse(localStorage.getItem('quizScores'));
+            const newScore = localStorage.getItem('quizScore');
+            const newSubject = localStorage.getItem('quizName');
+            
+            if (newScore !== null && newSubject !== null) {
+                scores.push({
+                    subject: newSubject,
+                    score: parseInt(newScore)
+                });
+            
+                localStorage.setItem('quizScores', JSON.stringify(scores));
+                localStorage.removeItem('quizScore');
+                localStorage.removeItem('quizName');
+            }
+            
+            // Display all scores
+            const scoreTableBody = document.getElementById('scoreTableBody');
+            scoreTableBody.innerHTML = ''; 
+            
+            let totalScore = 0;
+            
+            scores.forEach(item => {
+                totalScore += item.score;
+                const row = document.createElement('tr');
+                row.className = 'score-row';
+                
+              
+                const subjectCell = document.createElement('td');
+                subjectCell.className = 'quiz-name';
+                subjectCell.textContent = item.subject;
+                row.appendChild(subjectCell);
+                
+                const scoreCell = document.createElement('td');
+                scoreCell.className = 'quiz-score';
+                scoreCell.textContent = `${item.score} pts`;
+                row.appendChild(scoreCell);
+                
+                scoreTableBody.appendChild(row);
+            });
+            
+            document.getElementById('totalScore').textContent = totalScore;
         });
     </script>
-    
-    
 </body>
 </html>
