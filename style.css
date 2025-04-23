@@ -1572,3 +1572,77 @@ footer {
 .restart-btn:hover {
     background-color: #45a049;
 }
+
+.quizzes-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+  
+  .quiz-container {
+    flex: 0 0 auto;
+    width: calc(90% / 3); 
+    padding: 10px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  .quiz-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0 20px;
+  }
+
+  .next-container{
+    margin-right: 10%;
+  }
+
+  
+  .previous-container,
+  .next-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    
+  }
+  
+  .previous-container p,
+  .next-container p {
+    margin: 0 20px;
+  }
+  
+  .previous.round,
+  .next.round {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 24px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s;
+  }
+  
+  .previous.round:hover,
+  .next.round:hover {
+    background-color: #ddd;
+  }
+  
+
+  @media (max-width: 1024px) {
+    .quiz-container {
+      width: 50%; 
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .quiz-container {
+      width: 100%; 
+    }
+  }
