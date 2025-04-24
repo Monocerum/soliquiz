@@ -986,7 +986,7 @@ footer {
     background: rgba(0, 0, 0, 0.6);
     border-radius: 2em;
     align-items: baseline;
-    margin: 0 5% 5% 10%;
+    margin: 0 5% 5% 20%;
     padding: 2% 0;
     justify-content: center;
     min-height: 20em;
@@ -1127,7 +1127,7 @@ footer {
 }
 
 .question2-img {
-    width: 10em;
+    width: 13em;
     height: 15em;
     border-radius: 1em;
 }
@@ -1840,10 +1840,7 @@ footer {
 .next-container {
     display: flex;
     align-items: center;
-
-    a {
-        cursor: pointer;
-    }
+    cursor: pointer;
 }
   
 .previous-container p,
