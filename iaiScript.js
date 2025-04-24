@@ -5,9 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let score = 0;
     let selectedAnswers = [];
     let currentQ = 0;
+    let questionAlreadyAnswered = []; 
+    let timerInterval; // Store the timer interval reference so we can clear it later
 
-    // Correct answers (index of the correct option for each question, 0-based)
-    const correctAnswers = [1, 2, 2, 3, 0, 2, 1, 3, 2, 1];
+    const correctAnswers = [0, 1, 2, 3, 2, 0, 1, 1, 3, 2];
 
     startBtn.addEventListener("click", () => {
         startScreen.classList.add("fade-out");
@@ -19,109 +20,134 @@ document.addEventListener("DOMContentLoaded", () => {
     const quizContents = [
         {
             number: 1,
-            question: "What is the primary goal of Artificial Intelligence?",
+            question: "A computer program and all documentation necessary to develop, install, use and maintain a complete system.",
             choices: [
-                "To mimic human emotions",
-                "To create intelligent entities that can reason and act rationally",
-                "To replace human workers in all industries",
-                "To develop supercomputers with vast processing power"
+                "Software",
+                "Hardware",
+                "System Architecture",
+                "Engineering"
             ]
         },
         {
             number: 2,
-            question: "Which of the following is NOT one of the four approaches to defining AI?",
+            question: "Technological and managerial discipline concerned with systematic production and maintenance of software products–developed on time.",
             choices: [
-                "Thinking humanly",
-                "Acting rationally",
-                "Thinking creatively",
-                "Acting humanly"
+                "Computer Engineer",
+                "Software Engineering",
+                "Scrum Master",
+                "Technological Engineering"
             ]
         },
         {
             number: 3,
-            question: "What does the Turing Test aim to evaluate?",
+            question: "Which does not belong to the Software Development Myths",
             choices: [
-                "A computer's ability to solve mathematical problems",
-                "A computer's ability to produce artistic works",
-                "A computer's ability to exhibit intelligent behavior indistinguishable from a human",
-                "A computer's speed in processing data"
+                "Customer Myths",
+                "Practitioner Myths",
+                "Cost Predictability",
+                "Management Myths"
             ]
         },
         {
             number: 4,
-            question: "Which capability is NOT required for passing the Turing Test?",
+            question: "In the generic view of software engineering, what stage does includes designing phase, the coding and implementation, and testing.",
             choices: [
-                "Natural language processing",
-                "Knowledge representation",
-                "Machine learning",
-                "Physical simulation of a human body"
+                "Specification Stage",
+                "Stage 3: Maintenance",
+                "Requirement Phase",
+                "Stage 2: Implementation"
             ]
         },
         {
             number: 5,
-            question: "What is meant by \"rationality\" in AI?",
+            question: "In the generic view of software engineering, in what phase does it provide the definition of the information domain and function of the software.",
             choices: [
-                "Acting to achieve the best outcome or best expected outcome",
-                "Processing information using logical rules only",
-                "Imitating human decision-making processes",
-                "Calculating the mathematical probability of all outcomes"
+                "Specification Stage",
+                "Stage 3: Maintenance",
+                "Requirement Phase",
+                " Stage 2: Implementation"
             ]
         },
         {
             number: 6,
-            question: "A chess environment is best described as:",
+            question: "In SDLC or Waterfall Model, in what process does analysis design occur?",
             choices: [
-                "Fully observable and stochastic",
-                "Partially observable and deterministic",
-                "Fully observable and deterministic",
-                "Partially observable and stochastic"
+                "Modeling",
+                "Planning",
+                "Deployment",
+                "Construction"
             ]
         },
         {
             number: 7,
-            question: "Which discipline has contributed theories of reasoning and learning to AI?",
+            question: "A process consisting of a set of coordinated and controlled activities undertaken to achieve an objective conforming to specific requirements.",
             choices: [
-                "Sociology",
-                "Philosophy",
-                "Biology",
-                "Criminology"
+                "Project Management",
+                "Project",
+                "System Structure",
+                "Software Development Life Cycle"
             ]
         },
         {
             number: 8,
-            question: "What distinguishes rational agents from human-centered approaches in AI?",
+            question: "A phase in project management where focuses on defining clear, discrete activities and the work needed to complete each activity within a single project.",
             choices: [
-                "Rational agents focus solely on replicating human thought processes",
-                "Rational agents aim to pass the Turing Test exclusively",
-                "Rational agents are limited to solving mathematical problems only",
-                "Rational agents prioritize achieving ideal outcomes over mimicking humans"
+                "Executing the Project",
+                "Planning the Project",
+                "Initiating the Project",
+                "Controlling and Monitoring the Project"
             ]
         },
         {
             number: 9,
-            question: "What does PEAS stand for in AI agent design?",
+            question: "A phase in project management where it focuses on putting the plans developed in project initiation phase and planning phase into action.",
             choices: [
-                "Performance, Efficiency, Actuators, Sensors",
-                "Planning, Environment, Actions, Sensors",
-                "Performance, Environment, Actuators, Sensors",
-                "Perception, Environment, Actions, State"
+                "Closing down the Project",
+                "Planning the Project",
+                "Initiating the Project",
+                "Executing the Project"
             ]
         },
         {
             number: 10,
-            question: "Which type of agent uses condition-action rules to respond to current percepts?",
+            question: "One of the phases in project management focusing on bringing the project to an end.",
             choices: [
-                "Utility-based agent",
-                "Simple reflex agent",
-                "Model-based agent",
-                "Learning agent"
+                "Initiating the Project",
+                "Planning the Project",
+                "Closing down the Project",
+                " Executing the Project"
             ]
         }
-
     ];
     
+  
+    for (let i = 0; i < quizContents.length; i++) {
+        questionAlreadyAnswered[i] = false;
+    }
+    
+  
+    function updateNavigationState() {
+        const nextBtn = document.querySelector(".next");
+        const isCurrentQuestionAnswered = selectedAnswers[currentQ] !== undefined;
+        
+        if (!isCurrentQuestionAnswered) {
+            nextBtn.classList.add("disabled");
+            nextBtn.disabled = true;
+        } else {
+            nextBtn.classList.remove("disabled");
+            nextBtn.disabled = false;
+        }
+        
+        document.querySelectorAll('.question-item').forEach((item, idx) => {
+            if (idx > currentQ && !isCurrentQuestionAnswered) {
+                item.classList.add("disabled");
+            } else {
+                item.classList.remove("disabled");
+            }
+        });
+    }
+    
     function loadQuestion(index) {
-        // Make sure index is within bounds
         if (index < 0) {
             index = 0;
         } else if (index >= quizContents.length) {
@@ -147,46 +173,44 @@ document.addEventListener("DOMContentLoaded", () => {
       
             if (selectedAnswers[index] === choiceIndex) {
                 choiceContainer.classList.add("selected");
+                choiceContainer.classList.add("active");
             }
             
             choiceContainer.appendChild(choiceContent);
             choicesContent.appendChild(choiceContainer);
             
-            
             choiceContainer.addEventListener("click", () => {
-              
                 document.querySelectorAll(".choice-container").forEach(c => {
                     c.classList.remove("selected");
                     c.classList.remove("active");
                 });
                 
-                
                 choiceContainer.classList.add("selected");
                 choiceContainer.classList.add("active");
                 
+                if (questionAlreadyAnswered[index] && selectedAnswers[index] !== choiceIndex) {
+                    if (selectedAnswers[index] === correctAnswers[index] && choiceIndex !== correctAnswers[index]) {
+                        score--;
+                    }
+                    else if (selectedAnswers[index] !== correctAnswers[index] && choiceIndex === correctAnswers[index]) {
+                        score++;
+                    }
+                }
+                else if (!questionAlreadyAnswered[index]) {
+                    if (choiceIndex === correctAnswers[index]) {
+                        score++;
+                    }
+                    questionAlreadyAnswered[index] = true;
+                    document.getElementById(`Q${index + 1}`).parentElement.classList.add("answered");
+                }
                 
                 selectedAnswers[index] = choiceIndex;
                 
-              
-                if (choiceIndex === correctAnswers[index]) {
-                    score++;
-                }
-                
-                
-                document.getElementById(`Q${index + 1}`).parentElement.classList.add("answered");
-                
-                
-                setTimeout(() => {
-                    if (index < quizContents.length - 1) {
-                        currentQ++;
-                        loadQuestion(currentQ);
-                    } else {
-                        showResults();
-                    }
-                }, 1000);
+                updateNavigationState();
+
+                checkAllQuestionsAnswered();
             });
 
-           
             choiceContainer.addEventListener("mousedown", () => {
                 choiceContainer.classList.add("clicking");
             });
@@ -195,35 +219,29 @@ document.addEventListener("DOMContentLoaded", () => {
                 choiceContainer.classList.remove("clicking");
             });
 
-           
             choiceContainer.addEventListener("mouseleave", () => {
                 choiceContainer.classList.remove("clicking");
             });
         });
         
-        
-       
         document.querySelector(".previous").style.visibility = index === 0 ? "hidden" : "visible";
         document.querySelector(".next").style.visibility = index === quizContents.length - 1 ? "hidden" : "visible";
         
-       
+        updateNavigationState();
+        
         updateQuestionSlider(index);
     }
 
-  
     function updateQuestionSlider(currentIndex) {
-       
         document.querySelectorAll('.question-item').forEach(item => {
             item.classList.remove('active');
         });
         
-     
         const currentQuestionItem = document.querySelector(`.question-item:nth-child(${currentIndex + 1})`);
         if (currentQuestionItem) {
             currentQuestionItem.classList.add('active');
         }
         
-      
         const questionsContainer = document.querySelector('.questions-container');
         const activeQuestion = document.querySelector('.question-item.active');
         
@@ -234,7 +252,6 @@ document.addEventListener("DOMContentLoaded", () => {
             
             const scrollPosition = activeQuestionOffset - (containerWidth / 2) + (activeQuestionWidth / 2);
             
-           
             questionsContainer.scrollTo({
                 left: scrollPosition,
                 behavior: 'smooth'
@@ -242,8 +259,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function showResults() {           
-        quizName = "Introduction To Ai";      
+    function showResults() {  
+        // Stop the timer when showing results
+        if (timerInterval) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+             
+        quizName = "Software Engineering";      
         const questionContainer = document.querySelector(".question-container");                 
         questionContainer.innerHTML = `                     
             <h3 class="results-heading">Quiz Completed!</h3>                     
@@ -256,18 +279,54 @@ document.addEventListener("DOMContentLoaded", () => {
         
         document.querySelector(".question-selection").style.display = "none";                              
         
-        document.querySelector(".restart-btn").addEventListener("click", () => {                     
-            // localStorage.removeItem('quizScore');
-            // localStorage.removeItem('quizName');  // Also remove quizName on restart                     
+        document.querySelector(".restart-btn").addEventListener("click", () => {                                    
             location.reload();                 
         });             
     }
     
+    const questionContainer = document.querySelector(".question-container");
+    const submitBtn = document.createElement("button");
+    submitBtn.textContent = "Submit Quiz";
+    submitBtn.classList.add("submit-btn");
+    submitBtn.style.display = "none";
+    questionContainer.appendChild(submitBtn);
+    
+    function checkAllQuestionsAnswered() {
+        const allAnswered = questionAlreadyAnswered.every(answered => answered);
+        submitBtn.style.display = allAnswered ? "block" : "none";
+    }
+    
+    submitBtn.addEventListener("click", () => {
+        showConfirmation();
+    });
+    
+    const confirmationContainer = document.getElementById("confirmationContainer");
+    const returnBtn = document.querySelector(".return-btn");
+    const confirmBtn = document.querySelector(".confirm-btn");
+
+    function showConfirmation() {
+        confirmationContainer.style.display = "flex";
+    }
+
+    returnBtn.addEventListener("click", () => {
+        confirmationContainer.style.display = "none";
+    });
+
+    confirmBtn.addEventListener("click", () => {
+        confirmationContainer.style.display = "none";
+        showResults();
+    })
+    
     function startTimer() {
-        let totalSeconds = 120; 
+        let totalSeconds = 40; 
         const timerElement = document.querySelector(".timer-js");
         
-        const timerInterval = setInterval(() => {
+        // Clear any existing timer before starting a new one
+        if (timerInterval) {
+            clearInterval(timerInterval);
+        }
+        
+        timerInterval = setInterval(() => {
             const minutes = Math.floor(totalSeconds / 60);
             const seconds = totalSeconds % 60;
             
@@ -275,24 +334,23 @@ document.addEventListener("DOMContentLoaded", () => {
             
             if (totalSeconds <= 0) {
                 clearInterval(timerInterval);
+                timerInterval = null;
                 showResults();
             }
-            
+
             totalSeconds--;
         }, 1000);
     }
 
- 
     const questionsContainer = document.querySelector('.questions-container');
     if (questionsContainer) {
         questionsContainer.style.display = 'flex';
         questionsContainer.style.overflowX = 'auto';
         questionsContainer.style.scrollBehavior = 'smooth';
         questionsContainer.style.padding = '10px 0';
-        questionsContainer.style.scrollbarWidth = 'none'; // Hide scrollbar in Firefox
-        questionsContainer.style.msOverflowStyle = 'none'; // Hide scrollbar in IE/Edge
+        questionsContainer.style.scrollbarWidth = 'none';
+        questionsContainer.style.msOverflowStyle = 'none';
         
-        // Hide scrollbar in Chrome/Safari
         const style = document.createElement('style');
         style.textContent = `
             .questions-container::-webkit-scrollbar {
@@ -305,7 +363,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 cursor: pointer;
             }
             .question-item.active {
-                transform: scale(1.2);
+                transform: scale(1.0);
                 z-index: 10;
                 position: relative;
             }
@@ -330,20 +388,39 @@ document.addEventListener("DOMContentLoaded", () => {
                 justify-content: center;
                 font-size: 12px;
             }
+            .next.disabled, .question-item.disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+                pointer-events: none;
+            }
+            .submit-btn {
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            .submit-btn:hover {
+                background-color: #45a049;
+            }
         `;
         document.head.appendChild(style);
     }
     
-   
     document.querySelectorAll('.question-item').forEach((item, idx) => {
         item.addEventListener('click', () => {
-            currentQ = idx;
-            loadQuestion(currentQ);
+            if (!item.classList.contains('disabled')) {
+                currentQ = idx;
+                loadQuestion(currentQ);
+            }
         });
     });
     
     document.querySelector(".next").addEventListener("click", () => {
-        if (currentQ < quizContents.length - 1) {
+        if (!document.querySelector(".next").disabled && currentQ < quizContents.length - 1) {
             currentQ++;
             loadQuestion(currentQ);
         }
@@ -357,18 +434,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     loadQuestion(currentQ);
-});
-
-document.querySelector(".next").addEventListener("click", () => {
-    if (currentQ < quizContents.length - 1) {
-        currentQ++;
-        loadQuestion(currentQ);
-    }
-});
-
-document.querySelector(".previous").addEventListener("click", () => {
-    if (currentQ > 0) {
-        currentQ--;
-        loadQuestion(currentQ);
-    }
 });
