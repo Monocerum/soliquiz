@@ -120,12 +120,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     ];
     
-  
     for (let i = 0; i < quizContents.length; i++) {
         questionAlreadyAnswered[i] = false;
     }
     
-  
     function updateNavigationState() {
         const nextBtn = document.querySelector(".next");
         const isCurrentQuestionAnswered = selectedAnswers[currentQ] !== undefined;

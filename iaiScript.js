@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "To mimic human emotions",
                 "To create intelligent entities that can reason and act rationally",
                 "To replace human workers in all industries",
-                "o design aesthetically pleasing robots"
+                "To design aesthetically pleasing robots"
             ]
         },
         {
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "A computer's ability to solve mathematical problems",
                 "A computer's ability to produce artistic works",
                 "A computer's ability to exhibit intelligent behavior indistinguishable from a human",
-                " A computer's speed in processing data"
+                "A computer's speed in processing data"
             ]
         },
         {
