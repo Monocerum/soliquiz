@@ -887,6 +887,7 @@ footer {
     opacity: 0.5;
     transition: opacity 0.3s ease;  
     text-align: center;
+    transform: scale(0.95);
 }
 
 .question-item2 {

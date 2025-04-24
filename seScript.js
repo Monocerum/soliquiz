@@ -333,7 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 cursor: pointer;
             }
             .question-item.active {
-                transform: scale(1.2);
+                transform: scale(1.0);
                 z-index: 10;
                 position: relative;
             }
