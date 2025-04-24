@@ -269,10 +269,13 @@ document.addEventListener("DOMContentLoaded", () => {
         quizName = "Software Engineering";      
         const questionContainer = document.querySelector(".question-container");                 
         questionContainer.innerHTML = `                     
-            <h3 class="results-heading">Quiz Completed!</h3>                     
-            <p class="results-score">Your score: ${score} out of ${quizContents.length}</p>                     
+            <h3 class="results-heading">SCORE</h3>                     
+            <p class="results-score">Points: <strong>${score} pts</strong> out of ${quizContents.length} pts    </p>            
+            <div class="score-progress">
+                <div class="score-progress-bar" style="width: ${score / quizContents.length * 100}%;"></div>
+            </div>  
             <button class="restart-btn">Restart Quiz</button>                 
-        `;                              
+        `;                               
         
         localStorage.setItem('quizScore', score);                 
         localStorage.setItem('quizName', quizName);                           
