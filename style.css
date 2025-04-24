@@ -978,20 +978,25 @@ footer {
     flex-direction: row;
     margin: 0 5% 5% 5%;
     padding: 2% 0;
+    justify-content: flex-start;
+    min-height: 20em;
+}
+
+.subjects-container {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 2em;
+    align-items: baseline;
+    margin: 0 5% 5% 10%;
+    padding: 2% 0;
     justify-content: center;
     min-height: 20em;
 }
 
+.questions-images{
+    width: 100%;
+}
 .left-question{
-    background: rgba(105, 140, 105, 0.6);
-    border-radius: 2em;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    margin: 0 5% 5% 5%;
-    padding: 2% 0;
-    justify-content: center;
-    min-height: 20em;
+   width: 800px;
 }
 
 .question-number {
@@ -999,8 +1004,20 @@ footer {
     font-size: 2em;
 }
 
+.question-number2 {
+    background: linear-gradient(to right, gray, black);
+    margin: 0;
+    text-align: center;
+    font-size: 2em;
+}
+
 .question {
     font-size: 1.5em    ;
+}
+
+.question2 {
+    font-size: 1.5em;
+    text-align: center;
 }
 
 .choices {
@@ -1008,6 +1025,11 @@ footer {
     grid-template-columns: 1fr 1fr;
     gap: 5%;
     width: 80%;
+}
+
+.choices2 {
+    gap: 2%;
+    width: 100%;
 }
 
 .choice-container {
@@ -1049,6 +1071,30 @@ footer {
     cursor: pointer;
 }
 
+.images-container{
+    display: flex;
+    flex: 0 0 10%; 
+    flex-direction: row;
+    align-items: center;
+    opacity: 1;
+    width: 30px;
+    transition: opacity 0.3s ease;  
+    text-align: center;
+    cursor: pointer;
+}
+
+.image-container{
+    display: flex;
+    flex: 0 0 10%; 
+    flex-direction: row;
+    align-items: center;
+    opacity: 1;
+    width: 30px;
+    transition: opacity 0.3s ease;  
+    text-align: center;
+    cursor: pointer;
+}
+
 .question-item {
     display: flex;
     flex: 0 0 10%; 
@@ -1063,13 +1109,12 @@ footer {
 .question-item2 {
     display: flex;
     flex: 0 0 10%; 
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    opacity: 1;
-    width: 30px;
+    opacity: 0.5;
     transition: opacity 0.3s ease;  
     text-align: center;
-    cursor: pointer;
+    transform: scale(0.95);
 }
 
 .question-item:hover {
@@ -1078,6 +1123,18 @@ footer {
 
 .question-img {
     width: 20em;
+    border-radius: 1em;
+}
+
+.question2-img {
+    width: 10em;
+    height: 15em;
+    border-radius: 1em;
+}
+
+.subjects-img{
+    width: 15em;
+    height: 15em;
     border-radius: 1em;
 }
 

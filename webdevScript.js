@@ -16,112 +16,113 @@ document.addEventListener("DOMContentLoaded", () => {
     const quizContents = [
         {
             number: 1,
-            question: "What is the primary goal of Artificial Intelligence?",
+            question: "It is the standard language for creating and designing webpages and web applications.",
             choices: [
-                "To mimic human emotions",
-                "To create intelligent entities that can reason and act rationally",
-                "To replace human workers in all industries",
-                "Hyper Transfer Markup Language"
+                "Cascading Style Sheets",
+                "JavaScript",
+                "HyperText Markup Language",
+                "Python"
             ]
         },
         {
             number: 2,
-            question: "Which of the following is NOT one of the four approaches to defining AI?",
+            question: "Up to what heading element is valid in HTML?",
             choices: [
-                "Thinking humanly",
-                "Acting rationally",
-                "Thinking creatively",
-                "Acting humanly"
+                "h5",
+                "h6",
+                "h7",
+                "h8"
             ]
         },
         {
             number: 3,
-            question: "What does the Turing Test aim to evaluate?",
+            question: "It is an HTML element that allows you to embed another HTML document within the current page.",
             choices: [
-                "A computer's ability to solve mathematical problems",
-                "A computer's ability to produce artistic works",
-                "A computer's ability to exhibit intelligent behavior indistinguishable from a human",
-                "A computer's speed in processing data"
+                "<a>",
+                "<iframe>",
+                "<img>",
+                "<nav>"
             ]
         },
         {
             number: 4,
-            question: "Which capability is NOT required for passing the Turing Test?",
+            question: "Which of the following denotes the universal selector?",
             choices: [
-                "Natural language processing",
-                "Knowledge representation",
-                "Machine learning",
-                "Physical simulation of a human body"
+                "*",
+                "/",
+                "#",
+                "."
             ]
         },
         {
             number: 5,
-            question: "What is meant by \"rationality\" in AI?",
+            question: "In CSS, when using shorthand to define properties like border, padding, or margin, what is the correct order for specifying the values?",
             choices: [
-                "Natural language processing",
-                "Knowledge representation",
-                "Machine learning",
-                "Physical simulation of a human body"
+                "Top, Right, Bottom, Left",
+                "Left, Top, Right, Bottom",
+                "Right, Left, Top, Bottom",
+                "Top, Left, Bottom, Right"
             ]
         },
         {
             number: 6,
-            question: "A chess environment is best described as:",
+            question: "Which CSS selector targets elements based on their class attribute?",
             choices: [
-                "Fully observable and stochastic",
-                "Partially observable and deterministic",
-                "Fully observable and deterministic",
-                "Partially observable and stochastic"
+                "#header",
+                ".menu",
+                "div",
+                "*"
             ]
         },
         {
             number: 7,
-            question: "Which discipline has contributed theories of reasoning and learning to AI?",
+            question: "JavaScript was first known as _____.",
             choices: [
-                "Sociology",
-                "Philosophy",
-                "Biology",
-                "Criminology"
+                "Java",
+                "JS",
+                "LifeScript",
+                "LiveScript"
             ]
         },
         {
             number: 8,
-            question: "What distinguishes rational agents from human-centered approaches in AI?",
+            question: `Given this series of operations:\n\nvar y = 5;\nalert(++y);\ny = y + 2;\nalert(y--);\ny--;\nalert(--y);\nalert(y++);\ny++;\nalert(y);\n\nWhat will the last alert(y) display?`,
             choices: [
-                "Rational agents focus solely on replicating human thought processes",
-                "Rational agents aim to pass the Turing Test exclusively",
-                "Rational agents are limited to solving mathematical problems only",
-                "Rational agents prioritize achieving ideal outcomes over mimicking humans"
+                "5",
+                "7",
+                "9",
+                "11"
             ]
         },
         {
             number: 9,
-            question: "What does PEAS stand for in AI agent design?",
+            question: "To insert a JavaScript into an HTML page, which tag is used?",
             choices: [
-                "Performance, Efficiency, Actuators, Sensors",
-                "Planning, Environment, Actions, Sensors",
-                "Performance, Environment, Actuators, Sensors",
-                "Perception, Environment, Actions, State"
+                "<javascript>",
+                "<scr>",
+                "<script>",
+                "<style>"
             ]
         },
         {
             number: 10,
-            question: "Which type of agent uses condition-action rules to respond to current percepts?",
+            question: "It is a software program that enables a user to access information on the Internet via the World Wide Web.",
             choices: [
-                "Utility-based agent",
-                "Simple reflex agent",
-                "Model-based agent",
-                "Learning agent"
+                "website",
+                "webpage",
+                "web browser",
+                "web application"
             ]
         }
-    ]
+    ];
+    
     
     function loadQuestion(index) {
         const questionContent = quizContents[index];
-        const choicesContent = document.querySelector(".choices");
+        const choicesContent = document.querySelector(".choices2");
     
-        document.querySelector(".question-number").textContent = `QUESTION NO. ${questionContent.number}`;
-        document.querySelector(".question").textContent = questionContent.question;
+        document.querySelector(".question-number2").textContent = `QUESTION NO. ${questionContent.number}`;
+        document.querySelector(".question2").textContent = questionContent.question;
     
         choicesContent.innerHTML = "";
     
