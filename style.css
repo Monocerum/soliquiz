@@ -556,6 +556,292 @@ footer {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
+@media screen and (min-width: 6500px) {
+    .abt {
+        margin-top: 10%;
+    }
+
+    #leiCard {
+        left: 42%;
+    }
+    
+    #roxCard {
+        left: 45%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 51%;
+    }
+    
+    #kurtCard {
+        left: 54%;
+    }
+}
+
+@media screen and (min-width: 5500px) and (max-width: 6500px) {
+    .abt {
+        margin-top: 15%;
+    }
+
+    #leiCard {
+        left: 41%;
+    }
+    
+    #roxCard {
+        left: 44%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 51%;
+    }
+    
+    #kurtCard {
+        left: 54%;
+    }
+}
+
+@media screen and (min-width: 5100px) and (max-width: 5500px) {
+    .abt {
+        margin-top: 15%;
+    }
+
+    #leiCard {
+        left: 39%;
+    }
+    
+    #roxCard {
+        left: 43%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 52%;
+    }
+    
+    #kurtCard {
+        left: 54%;
+    }
+}
+
+@media screen and (min-width: 4700px) and (max-width: 5100px) {
+    .abt {
+        margin-top: 15%;
+    }
+
+    #leiCard {
+        left: 38%;
+    }
+    
+    #roxCard {
+        left: 43%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 52%;
+    }
+    
+    #kurtCard {
+        left: 56%;
+    }
+}
+
+@media screen and (min-width: 3700px) and (max-width: 4700px) {
+    .abt {
+        margin-top: 15%;
+    }
+
+    #leiCard {
+        left: 37%;
+    }
+    
+    #roxCard {
+        left: 42%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 52%;
+    }
+    
+    #kurtCard {
+        left: 57%;
+    }
+}
+
+@media screen and (min-width: 3300px) and (max-width: 3700px) {
+    .abt {
+        margin-top: 15%;
+    }
+
+    #leiCard {
+        left: 35%;
+    }
+    
+    #roxCard {
+        left: 40%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 53%;
+    }
+    
+    #kurtCard {
+        left: 59%;
+    }
+}
+
+@media screen and (min-width: 3000px) and (max-width: 3300px) {
+    .abt {
+        margin-top: 20%;
+    }
+
+    #leiCard {
+        left: 33%;
+    }
+    
+    #roxCard {
+        left: 39%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 53%;
+    }
+    
+    #kurtCard {
+        left: 59%;
+    }
+}
+
+@media screen and (min-width: 2700px) and (max-width: 3000px) {
+    .abt {
+        margin-top: 20%;
+    }
+
+    #leiCard {
+        left: 30%;
+    }
+    
+    #roxCard {
+        left: 38%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 54%;
+    }
+    
+    #kurtCard {
+        left: 62%;
+    }
+}
+
+@media screen and (min-width: 2400px) and (max-width: 2700px) {
+    .abt {
+        margin-top: 20%;
+    }
+
+    #leiCard {
+        left: 28%;
+    }
+    
+    #roxCard {
+        left: 37%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 54%;
+    }
+    
+    #kurtCard {
+        left: 63%;
+    }
+}
+
+@media screen and (min-width: 2050px) and (max-width: 2400px) {
+    .abt {
+        margin-top: 25%;
+    }
+
+    #leiCard {
+        left: 25%;
+    }
+    
+    #roxCard {
+        left: 35%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 55%;
+    }
+    
+    #kurtCard {
+        left: 65%;
+    }
+}
+
+@media screen and (min-width: 2000px) and (max-width: 2050px) {
+    .abt {
+        margin-top: 25%;
+    }
+
+    #leiCard {
+        left: 22%;
+    }
+    
+    #roxCard {
+        left: 32%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 55%;
+    }
+    
+    #kurtCard {
+        left: 65%;
+    }
+}
+
 @media screen and (max-width: 1600px) {
     .abt {
         margin-top: 40%;
@@ -965,7 +1251,7 @@ footer {
     align-items: center;
     flex-direction: column;
     margin: 0 5% 5% 5%;
-    padding: 2% 0;
+    padding: 2%;
     justify-content: center;
     min-height: 20em;
 }
@@ -1638,7 +1924,6 @@ footer {
     transform: translate(-86%, 540%);
 }
 
-
 .quiz-start-wd p {
     position: absolute;
     font-size: 1em;
@@ -2060,15 +2345,35 @@ footer {
 
 /* Results section styling */
 .results-heading {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 3rem;
+    padding: 0;
+
+    margin: 0 0 0.5rem 0;
     text-align: center;
 }
 
 .results-score {
     font-size: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     text-align: center;
+}
+
+.score-progress {
+    width: 50%;
+    height: 50px;
+    background-color: #a0a0a0;
+    border-radius: 50px;
+    overflow: hidden;
+    margin: 0 5% 5%;
+    border: 10px #a0a0a0 solid;
+}
+
+.score-progress-bar {
+    height: 100%;
+    background: linear-gradient(180deg, #E7809B 0%, #F3CAD5 100%);
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+    border-radius: 50px;
 }
 
 .restart-btn {
@@ -2079,14 +2384,14 @@ footer {
     background-color: #c42b05b0;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 15px;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .restart-btn:hover {
-    background-color: #45a049;
+    background-color: var(--green);
 }
 
 .quizzes-container {
@@ -2119,7 +2424,10 @@ footer {
 .next-container {
     display: flex;
     align-items: center;
-    cursor: pointer;
+
+    a {
+        cursor: pointer;
+    }
 }
   
 .previous-container p,
