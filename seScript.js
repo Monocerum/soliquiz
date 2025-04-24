@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     const startBtn = document.getElementById("startQuizBtn");
     const startScreen = document.getElementById("startScreen");
@@ -175,46 +176,49 @@ document.addEventListener("DOMContentLoaded", () => {
       
             if (selectedAnswers[index] === choiceIndex) {
                 choiceContainer.classList.add("selected");
+                choiceContainer.classList.add("active");
             }
             
             choiceContainer.appendChild(choiceContent);
             choicesContent.appendChild(choiceContainer);
             
             choiceContainer.addEventListener("click", () => {
-                // If this question has already been answered, don't process the score again
-                const isFirstAnswer = !questionAlreadyAnswered[index];
-                
+                // First remove all selected classes
                 document.querySelectorAll(".choice-container").forEach(c => {
                     c.classList.remove("selected");
                     c.classList.remove("active");
                 });
                 
+                // Add selected class to this choice
                 choiceContainer.classList.add("selected");
                 choiceContainer.classList.add("active");
                 
+                // Handle score calculation - if answer changed, adjust score
+                if (questionAlreadyAnswered[index] && selectedAnswers[index] !== choiceIndex) {
+                    // If they had the correct answer before but now changed to incorrect
+                    if (selectedAnswers[index] === correctAnswers[index] && choiceIndex !== correctAnswers[index]) {
+                        score--;
+                    }
+                    // If they had incorrect answer before but now changed to correct
+                    else if (selectedAnswers[index] !== correctAnswers[index] && choiceIndex === correctAnswers[index]) {
+                        score++;
+                    }
+                }
+                // If this is the first time answering
+                else if (!questionAlreadyAnswered[index]) {
+                    if (choiceIndex === correctAnswers[index]) {
+                        score++;
+                    }
+                    // Mark this question as answered
+                    questionAlreadyAnswered[index] = true;
+                    document.getElementById(`Q${index + 1}`).parentElement.classList.add("answered");
+                }
+                
+                // Update the selected answer
                 selectedAnswers[index] = choiceIndex;
                 
                 // Enable navigation after selecting an answer
                 updateNavigationState();
-                
-                // Only increment score if this is the first time answering AND the answer is correct
-                if (isFirstAnswer && choiceIndex === correctAnswers[index]) {
-                    score++;
-                }
-                
-                // Mark this question as answered
-                questionAlreadyAnswered[index] = true;
-                
-                document.getElementById(`Q${index + 1}`).parentElement.classList.add("answered");
-                
-                setTimeout(() => {
-                    if (index < quizContents.length - 1) {
-                        currentQ++;
-                        loadQuestion(currentQ);
-                    } else {
-                        showResults();
-                    }
-                }, 1000);
             });
 
             choiceContainer.addEventListener("mousedown", () => {
@@ -284,6 +288,25 @@ document.addEventListener("DOMContentLoaded", () => {
             location.reload();                 
         });             
     }
+    
+    // Add a submit button
+    const questionContainer = document.querySelector(".question-container");
+    const submitBtn = document.createElement("button");
+    submitBtn.textContent = "Submit Quiz";
+    submitBtn.classList.add("submit-btn");
+    submitBtn.style.display = "none";
+    questionContainer.appendChild(submitBtn);
+    
+    // Show submit button when all questions are answered
+    function checkAllQuestionsAnswered() {
+        const allAnswered = questionAlreadyAnswered.every(answered => answered);
+        submitBtn.style.display = allAnswered ? "block" : "none";
+    }
+    
+    // Add event listener for submit button
+    submitBtn.addEventListener("click", () => {
+        showResults();
+    });
     
     function startTimer() {
         let totalSeconds = 40; 
@@ -356,6 +379,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 cursor: not-allowed;
                 pointer-events: none;
             }
+            .submit-btn {
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            .submit-btn:hover {
+                background-color: #45a049;
+            }
         `;
         document.head.appendChild(style);
     }
@@ -374,6 +410,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!document.querySelector(".next").disabled && currentQ < quizContents.length - 1) {
             currentQ++;
             loadQuestion(currentQ);
+            checkAllQuestionsAnswered();
         }
     });
 
@@ -381,6 +418,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentQ > 0) {
             currentQ--;
             loadQuestion(currentQ);
+            checkAllQuestionsAnswered();
         }
     });
 

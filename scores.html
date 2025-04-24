@@ -55,6 +55,10 @@
                     </tbody>
                 </table>
             </div>
+            <div class="clear-btn-container">
+                <button id="clearScoresBtn" class="clear-btn">Clear Scores</button>
+            </div>
+            
         </section>
     </main>
     <footer>
@@ -118,8 +122,17 @@
                 scoreTableBody.appendChild(row);
             });
             
+            
             document.getElementById('totalScore').textContent = totalScore;
         });
+        
+       
+        document.getElementById('clearScoresBtn').addEventListener('click', function () {
+            localStorage.removeItem('quizScores');
+            scoreTableBody.innerHTML = '';
+            document.getElementById('totalScore').textContent = '0';
+        });
+
     </script>
 </body>
 </html>

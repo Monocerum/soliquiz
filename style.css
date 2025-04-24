@@ -1646,3 +1646,23 @@ footer {
       width: 100%; 
     }
   }
+
+  .clear-btn-container {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.clear-btn {
+    padding: 8px 16px;
+    background-color: lightgrey;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.clear-btn:hover {
+    background-color: rgb(255, 255, 255);
+}
