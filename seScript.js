@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let score = 0;
     let selectedAnswers = [];
     let currentQ = 0;
+    let questionAlreadyAnswered = []; 
 
-    // Correct answers (index of the correct option for each question, 0-based)
-    const correctAnswers = [1, 2, 2, 3, 0, 2, 1, 3, 2, 1];
+    const correctAnswers = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 
     startBtn.addEventListener("click", () => {
         startScreen.classList.add("fade-out");
@@ -117,8 +117,36 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Learning agent"
             ]
         }
-
     ];
+    
+  
+    for (let i = 0; i < quizContents.length; i++) {
+        questionAlreadyAnswered[i] = false;
+    }
+    
+  
+    function updateNavigationState() {
+        const nextBtn = document.querySelector(".next");
+        const isCurrentQuestionAnswered = selectedAnswers[currentQ] !== undefined;
+        
+        // Update next button state
+        if (!isCurrentQuestionAnswered) {
+            nextBtn.classList.add("disabled");
+            nextBtn.disabled = true;
+        } else {
+            nextBtn.classList.remove("disabled");
+            nextBtn.disabled = false;
+        }
+        
+        // Update question indicators (images)
+        document.querySelectorAll('.question-item').forEach((item, idx) => {
+            if (idx > currentQ && !isCurrentQuestionAnswered) {
+                item.classList.add("disabled");
+            } else {
+                item.classList.remove("disabled");
+            }
+        });
+    }
     
     function loadQuestion(index) {
         // Make sure index is within bounds
@@ -152,29 +180,32 @@ document.addEventListener("DOMContentLoaded", () => {
             choiceContainer.appendChild(choiceContent);
             choicesContent.appendChild(choiceContainer);
             
-            
             choiceContainer.addEventListener("click", () => {
-              
+                // If this question has already been answered, don't process the score again
+                const isFirstAnswer = !questionAlreadyAnswered[index];
+                
                 document.querySelectorAll(".choice-container").forEach(c => {
                     c.classList.remove("selected");
                     c.classList.remove("active");
                 });
                 
-                
                 choiceContainer.classList.add("selected");
                 choiceContainer.classList.add("active");
                 
-                
                 selectedAnswers[index] = choiceIndex;
                 
-              
-                if (choiceIndex === correctAnswers[index]) {
+                // Enable navigation after selecting an answer
+                updateNavigationState();
+                
+                // Only increment score if this is the first time answering AND the answer is correct
+                if (isFirstAnswer && choiceIndex === correctAnswers[index]) {
                     score++;
                 }
                 
+                // Mark this question as answered
+                questionAlreadyAnswered[index] = true;
                 
                 document.getElementById(`Q${index + 1}`).parentElement.classList.add("answered");
-                
                 
                 setTimeout(() => {
                     if (index < quizContents.length - 1) {
@@ -186,7 +217,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }, 1000);
             });
 
-           
             choiceContainer.addEventListener("mousedown", () => {
                 choiceContainer.classList.add("clicking");
             });
@@ -195,35 +225,30 @@ document.addEventListener("DOMContentLoaded", () => {
                 choiceContainer.classList.remove("clicking");
             });
 
-           
             choiceContainer.addEventListener("mouseleave", () => {
                 choiceContainer.classList.remove("clicking");
             });
         });
         
-        
-       
         document.querySelector(".previous").style.visibility = index === 0 ? "hidden" : "visible";
         document.querySelector(".next").style.visibility = index === quizContents.length - 1 ? "hidden" : "visible";
         
-       
+        // Update navigation state after loading the question
+        updateNavigationState();
+        
         updateQuestionSlider(index);
     }
 
-  
     function updateQuestionSlider(currentIndex) {
-       
         document.querySelectorAll('.question-item').forEach(item => {
             item.classList.remove('active');
         });
         
-     
         const currentQuestionItem = document.querySelector(`.question-item:nth-child(${currentIndex + 1})`);
         if (currentQuestionItem) {
             currentQuestionItem.classList.add('active');
         }
         
-      
         const questionsContainer = document.querySelector('.questions-container');
         const activeQuestion = document.querySelector('.question-item.active');
         
@@ -234,7 +259,6 @@ document.addEventListener("DOMContentLoaded", () => {
             
             const scrollPosition = activeQuestionOffset - (containerWidth / 2) + (activeQuestionWidth / 2);
             
-           
             questionsContainer.scrollTo({
                 left: scrollPosition,
                 behavior: 'smooth'
@@ -262,7 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     function startTimer() {
-        let totalSeconds = 10; 
+        let totalSeconds = 40; 
         const timerElement = document.querySelector(".timer-js");
         
         const timerInterval = setInterval(() => {
@@ -280,7 +304,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000);
     }
 
- 
     const questionsContainer = document.querySelector('.questions-container');
     if (questionsContainer) {
         questionsContainer.style.display = 'flex';
@@ -328,20 +351,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 justify-content: center;
                 font-size: 12px;
             }
+            .next.disabled, .question-item.disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+                pointer-events: none;
+            }
         `;
         document.head.appendChild(style);
     }
     
-   
     document.querySelectorAll('.question-item').forEach((item, idx) => {
         item.addEventListener('click', () => {
-            currentQ = idx;
-            loadQuestion(currentQ);
+            // Only allow navigation to questions that are accessible
+            if (!item.classList.contains('disabled')) {
+                currentQ = idx;
+                loadQuestion(currentQ);
+            }
         });
     });
     
     document.querySelector(".next").addEventListener("click", () => {
-        if (currentQ < quizContents.length - 1) {
+        if (!document.querySelector(".next").disabled && currentQ < quizContents.length - 1) {
             currentQ++;
             loadQuestion(currentQ);
         }
@@ -355,18 +385,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     loadQuestion(currentQ);
-});
-
-document.querySelector(".next").addEventListener("click", () => {
-    if (currentQ < quizContents.length - 1) {
-        currentQ++;
-        loadQuestion(currentQ);
-    }
-});
-
-document.querySelector(".previous").addEventListener("click", () => {
-    if (currentQ > 0) {
-        currentQ--;
-        loadQuestion(currentQ);
-    }
 });
