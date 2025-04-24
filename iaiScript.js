@@ -266,7 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
             timerInterval = null;
         }
              
-        quizName = "Software Engineering";      
+        quizName = "Introduction to AI";      
         const questionContainer = document.querySelector(".question-container");                 
         questionContainer.innerHTML = `                     
             <h3 class="results-heading">Quiz Completed!</h3>                     
