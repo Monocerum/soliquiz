@@ -1848,7 +1848,20 @@ footer {
     margin: 0 20px;
 }
   
-.previous.round,
+.previous.round{
+    display: inline-block;
+    width: 10px;
+    height: 40px;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 24px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
 .next.round {
     display: inline-block;
     width: 40px;
