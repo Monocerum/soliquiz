@@ -1840,7 +1840,10 @@ footer {
 .next-container {
     display: flex;
     align-items: center;
-    cursor: pointer;
+
+    a {
+        cursor: pointer;
+    }
 }
   
 .previous-container p,
