@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     const startBtn = document.getElementById("startQuizBtn");
     const startScreen = document.getElementById("startScreen");
@@ -130,7 +129,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const nextBtn = document.querySelector(".next");
         const isCurrentQuestionAnswered = selectedAnswers[currentQ] !== undefined;
         
-        // Update next button state
         if (!isCurrentQuestionAnswered) {
             nextBtn.classList.add("disabled");
             nextBtn.disabled = true;
@@ -139,7 +137,6 @@ document.addEventListener("DOMContentLoaded", () => {
             nextBtn.disabled = false;
         }
         
-        // Update question indicators (images)
         document.querySelectorAll('.question-item').forEach((item, idx) => {
             if (idx > currentQ && !isCurrentQuestionAnswered) {
                 item.classList.add("disabled");
@@ -150,7 +147,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     function loadQuestion(index) {
-        // Make sure index is within bounds
         if (index < 0) {
             index = 0;
         } else if (index >= quizContents.length) {
@@ -183,42 +179,35 @@ document.addEventListener("DOMContentLoaded", () => {
             choicesContent.appendChild(choiceContainer);
             
             choiceContainer.addEventListener("click", () => {
-                // First remove all selected classes
                 document.querySelectorAll(".choice-container").forEach(c => {
                     c.classList.remove("selected");
                     c.classList.remove("active");
                 });
                 
-                // Add selected class to this choice
                 choiceContainer.classList.add("selected");
                 choiceContainer.classList.add("active");
                 
-                // Handle score calculation - if answer changed, adjust score
                 if (questionAlreadyAnswered[index] && selectedAnswers[index] !== choiceIndex) {
-                    // If they had the correct answer before but now changed to incorrect
                     if (selectedAnswers[index] === correctAnswers[index] && choiceIndex !== correctAnswers[index]) {
                         score--;
                     }
-                    // If they had incorrect answer before but now changed to correct
                     else if (selectedAnswers[index] !== correctAnswers[index] && choiceIndex === correctAnswers[index]) {
                         score++;
                     }
                 }
-                // If this is the first time answering
                 else if (!questionAlreadyAnswered[index]) {
                     if (choiceIndex === correctAnswers[index]) {
                         score++;
                     }
-                    // Mark this question as answered
                     questionAlreadyAnswered[index] = true;
                     document.getElementById(`Q${index + 1}`).parentElement.classList.add("answered");
                 }
                 
-                // Update the selected answer
                 selectedAnswers[index] = choiceIndex;
                 
-                // Enable navigation after selecting an answer
                 updateNavigationState();
+
+                checkAllQuestionsAnswered();
             });
 
             choiceContainer.addEventListener("mousedown", () => {
@@ -237,7 +226,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".previous").style.visibility = index === 0 ? "hidden" : "visible";
         document.querySelector(".next").style.visibility = index === quizContents.length - 1 ? "hidden" : "visible";
         
-        // Update navigation state after loading the question
         updateNavigationState();
         
         updateQuestionSlider(index);
@@ -289,7 +277,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });             
     }
     
-    // Add a submit button
     const questionContainer = document.querySelector(".question-container");
     const submitBtn = document.createElement("button");
     submitBtn.textContent = "Submit Quiz";
@@ -297,13 +284,11 @@ document.addEventListener("DOMContentLoaded", () => {
     submitBtn.style.display = "none";
     questionContainer.appendChild(submitBtn);
     
-    // Show submit button when all questions are answered
     function checkAllQuestionsAnswered() {
         const allAnswered = questionAlreadyAnswered.every(answered => answered);
         submitBtn.style.display = allAnswered ? "block" : "none";
     }
     
-    // Add event listener for submit button
     submitBtn.addEventListener("click", () => {
         showResults();
     });
@@ -322,7 +307,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 clearInterval(timerInterval);
                 showResults();
             }
-            
+
             totalSeconds--;
         }, 1000);
     }
@@ -333,10 +318,9 @@ document.addEventListener("DOMContentLoaded", () => {
         questionsContainer.style.overflowX = 'auto';
         questionsContainer.style.scrollBehavior = 'smooth';
         questionsContainer.style.padding = '10px 0';
-        questionsContainer.style.scrollbarWidth = 'none'; // Hide scrollbar in Firefox
-        questionsContainer.style.msOverflowStyle = 'none'; // Hide scrollbar in IE/Edge
+        questionsContainer.style.scrollbarWidth = 'none';
+        questionsContainer.style.msOverflowStyle = 'none';
         
-        // Hide scrollbar in Chrome/Safari
         const style = document.createElement('style');
         style.textContent = `
             .questions-container::-webkit-scrollbar {
@@ -398,7 +382,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
     document.querySelectorAll('.question-item').forEach((item, idx) => {
         item.addEventListener('click', () => {
-            // Only allow navigation to questions that are accessible
             if (!item.classList.contains('disabled')) {
                 currentQ = idx;
                 loadQuestion(currentQ);
@@ -410,7 +393,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!document.querySelector(".next").disabled && currentQ < quizContents.length - 1) {
             currentQ++;
             loadQuestion(currentQ);
-            checkAllQuestionsAnswered();
         }
     });
 
@@ -418,7 +400,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentQ > 0) {
             currentQ--;
             loadQuestion(currentQ);
-            checkAllQuestionsAnswered();
         }
     });
 
