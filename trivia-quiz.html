@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=AR+One+Sans:wght@400..700&family=Anton&family=Bowlby+One+SC&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="style.css">
-    <script src="wdScript.js"></script>
+    <script src="trivia.js"></script>
     <title>Trivia Quiz | Soliquiz</title>
 </head>
 <body>
@@ -58,7 +58,7 @@
                 </section>
             </section>
         </article>
-        <article class="game-item">
+        <article class="game-item2">
             <div class="quiz-nav">
                 <div class="home-link">
                     <img src="images/menu-box.png" alt="" class="toggle-box">
@@ -72,54 +72,65 @@
                     <img src="images/elements/timer.svg" alt="Icon of Clock" class="timer-img">
                 </div>
             </div>
-            <section class="question-container">
-                <h5 class="question-number">QUESTION NO. 1</h5>
-                <p class="question">What is the primary goal of Artificial Intelligence?</p>
-                <div class="choices">
-                </div>
-            </section>
-            <section class="question-selection">
-                <div class="questions-container">
-                    <div class="question-item">
-                        <img src="images/number-cover/cover1-img.png" alt="Cover for Question No. 1: Mario and Luigi" class="question-img" id="Q1">
+            <section class="question-container2">
+                <div class="questions-images">
+                    <div class="images-container">
+                        <div class="question-item2">
+                            <img src="images/number-cover/cover1-img.png" alt="Cover for Question No. 1: Mario and Luigi" class="question2-img" id="Q1">
+                        </div>
+                        <div class="question-item2">
+                            <img src="images/number-cover/cover2-img.png" alt="Cover for Question No. 2: Link" class="question2-img" id="Q2">
+                        </div>
+                        <div class="question-item2">
+                            <img src="images/number-cover/cover3-img.png" alt="Cover for Question No. 3: Kirby" class="question2-img" id="Q3">
+                        </div>
+                        <div class="question-item2">
+                            <img src="images/number-cover/cover4-img.png" alt="Cover for Question No. 4: Minecraft" class="question2-img" id="Q4">
+                        </div>
+                        <div class="question-item2">
+                            <img src="images/number-cover/cover5-img.png" alt="Cover for Question No. 5: Donkey Kong" class="question2-img" id="Q5">
+                        </div>
                     </div>
-                    <div class="question-item">
-                        <img src="images/number-cover/cover2-img.png" alt="Cover for Question No. 2: Link" class="question-img" id="Q2">
-                    </div>
-                    <div class="question-item">
-                        <img src="images/number-cover/cover3-img.png" alt="Cover for Question No. 3: Kirby" class="question-img" id="Q3">
-                    </div>
-                    <div class="question-item">
-                        <img src="images/number-cover/cover4-img.png" alt="Cover for Question No. 4: Minecraft" class="question-img" id="Q4">
-                    </div>
-                    <div class="question-item">
-                        <img src="images/number-cover/cover5-img.png" alt="Cover for Question No. 5: Donkey Kong" class="question-img" id="Q5">
-                    </div>
-                    <div class="question-item">
-                        <img src="images/number-cover/cover6-img.png" alt="Cover for Question No. 6: Sonic" class="question-img" id="Q6">
-                    </div>
-                    <div class="question-item">
-                        <img src="images/number-cover/cover7-img.png" alt="Cover for Question No. 7: Super Mario" class="question-img" id="Q7">
-                    </div>
-                    <div class="question-item">
-                        <img src="images/number-cover/cover8-img.png" alt="Cover for Question No. 8: Princess Peach" class="question-img" id="Q8">
-                    </div>
-                    <div class="question-item">
-                        <img src="images/number-cover/cover9-img.png" alt="Cover for Question No. 9: Pokemon" class="question-img" id="Q9">
-                    </div>
-                    <div class="question-item">
-                        <img src="images/number-cover/cover10-img.png" alt="Cover for Question No. 10: Luigi" class="question-img" id="Q10">
+                    <div class="images-container">
+                        <div class="question-item2">
+                            <img src="images/number-cover/cover6-img.png" alt="Cover for Question No. 6: Sonic" class="question2-img" id="Q6">
+                        </div>
+                        <div class="question-item2">
+                            <img src="images/number-cover/cover7-img.png" alt="Cover for Question No. 7: Super Mario" class="question2-img" id="Q7">
+                        </div>
+                        <div class="question-item2">
+                            <img src="images/number-cover/cover8-img.png" alt="Cover for Question No. 8: Princess Peach" class="question2-img" id="Q8">
+                        </div>
+                        <div class="question-item2">
+                            <img src="images/number-cover/cover9-img.png" alt="Cover for Question No. 9: Pokemon" class="question2-img" id="Q9">
+                        </div>
+                        <div class="question-item2">
+                            <img src="images/number-cover/cover10-img.png" alt="Cover for Question No. 10: Luigi" class="question2-img" id="Q10">
+                        </div>
                     </div>
                 </div>
-                <div class="question-controls">
-                    <div class="previous-container">
-                        <a href="#" class="previous round">&#8249;</a>
-                        <p>Previous</p>
+                <div class="left-question">
+                    <h5 class="question-number2">QUESTION NO. 1</h5>
+                    <p class="question2">It is the standard language for creating and designing webpages and web applications</p>
+                    <hr><br>
+                    <div class="choices2">
                     </div>
-                    <div class="next-container">
-                        <p>Next</p>
-                        <a href="#" class="next round">&#8250;</a>
-                    </div>
+                    <br><hr>
+                    <section class="question-selection">
+                        <div class="questions-container">
+                           
+                        </div>
+                        <div class="question-controls">
+                            <div class="previous-container">
+                                <a href="#" class="previous round">&#8249;</a>
+                                <p>Previous</p>
+                            </div>
+                            <div class="next-container">
+                                <p>Next</p>
+                                <a href="#" class="next round">&#8250;</a>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </section>
         </article>

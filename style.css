@@ -1127,8 +1127,8 @@ footer {
 }
 
 .question2-img {
-    width: 13em;
-    height: 15em;
+    width: 10em;
+    height: 12em;
     border-radius: 1em;
 }
 
@@ -1601,7 +1601,7 @@ footer {
     width: 930px;
     top: -290px;
     z-index: 1;
-    transform: translate(80%, 30%);
+    transform: translate(60%, 30%);
 }
 
 .v2-header-img-trivia {
@@ -1625,7 +1625,7 @@ footer {
     width: 150px;
     top: -290px;
     z-index: 1;
-    transform: translate(36%, 550%);
+    transform: translate(36%, 540%);
 }
 
 .v2-header-img2-trivia {
@@ -1633,7 +1633,7 @@ footer {
     width: 150px;
     top: -290px;
     z-index: 1;
-    transform: translate(-86%, 550%);
+    transform: translate(-86%, 540%);
 }
 
 
@@ -1694,7 +1694,7 @@ footer {
     bottom: 0;
     left: 7px;
     border-radius: 10px;
-    transform: translate(-100%, -5%);
+    transform: translate(-60%, -5%);
 }
 
 .start-quiz-btn2 {
@@ -1731,7 +1731,7 @@ footer {
     cursor: pointer;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     margin-left: 2rem;
-    transform: translate(-220%, 420%);
+    transform: translate(-180%, 420%);
     z-index: 3;
 }
 
