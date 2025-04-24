@@ -16,107 +16,108 @@ document.addEventListener("DOMContentLoaded", () => {
     const quizContents = [
         {
             number: 1,
-            question: "Which of the following is NOT one of the three main goals of information security?",
+            question: "What is the powerhouse of the cell?",
             choices: [
-                "Confidentiality",
-                "Integrity",
-                "Accessibility",
-                "Availability"
-            ]
+                "Midoriya",
+                "Entamoeba histolytica",
+                "Mitochondria",
+                "Tralalero Tralala"
+            ],
         },
         {
             number: 2,
-            question: "What encryption machine was used by the Germans during World War II?",
+            question: "What is the mathematical symbol for pi (π) approximately equal to?",
             choices: [
-                "Turing Machine",
-                "Enigma Machine",
-                "Colossus Machine",
-                "ARPANET"
-            ]
+                "69",
+                "911",
+                "1738",
+                "3.14"
+            ],
         },
         {
             number: 3,
-            question: "The protection of information and its critical elements, including the systems and hardware that use, store, and transmit that information",
+            question: "Who was the leader of the Katipunan, the revolutionary society that fought against Spanish rule?",
             choices: [
-                "Cybersecurity",
-                "Data Privacy",
-                "Information Security",
-                "Network Security"
-            ]
+                "Kharl Velasco",
+                "Andrés Bonifacio",
+                "Michael Velasques",
+                "Emilio Aguinaldo"
+            ],
         },
         {
             number: 4,
-            question: "The information is safe from accidental or intentional disclosure.",
+            question: "Who is the youngest member of BINI?",
             choices: [
-                "Confidentiality",
-                "Integrity",
-                "Accessibility",
-                "Availability"
-            ]
+                "Aiah",
+                "Sheena",
+                "Stacey",
+                "Mikha",
+            ],
         },
         {
             number: 5,
-            question: "Keep data and resources available for authorized use.",
+            question: "What is the smallest country in the world by land area?",
             choices: [
-                "Availability Models",
-                "Data Privacy",
-                "Network Security",
-                "Accessibility"
-            ]
+                "Monaco",
+                "Vatican City",
+                "San Marino",
+                "Antipolo"
+            ],
         },
         {
             number: 6,
-            question: "Anything that can exploit a vulnerability, intentionally or accidentally, and obtain, damage, or destroy an asset.",
+            question: "Which famous inventor is known for inventing the light bulb?",
             choices: [
-                "Threat",
-                "Vulnerability",
-                "Attack",
-                "Software piracy"
-            ]
+                "Franklin Miano",
+                "Nikola Tesla",
+                "Thomas Edison",
+                "Jordan Poole"
+            ],
         },
         {
             number: 7,
-            question: "One that does not affect any system, although information is obtained.",
+            question: "What is the hardest natural substance on Earth?",
             choices: [
-                "Active Attack",
-                "Passive attack",
-                "Attack",
-                "Software piracy"
-            ]
+                "Vibranium",
+                "Puso niya",
+                "Diamond",
+                "Rock"
+            ],  
         },
         {
             number: 8,
-            question: "Weaknesses or gaps in a security program that can be exploited by threats to gain unauthorized access to an asset.",
+            question: "What is the largest mammal in the world?",
             choices: [
-                "Threat",
-                "Vulnerability",
-                "Attack",
-                "Software piracy"
-            ]
+                "Blue Whale",
+                "Chimpanzini Bananini",
+                "Bombardino Crocodino",
+                "Tung tung tung tung sahur"
+            ],
         },
         {
             number: 9,
-            question: "Unlawful use or duplication of software-based intellectual property.",
+            question: "Which fictional city is the home of Batman?",
             choices: [
-                "Threat",
-                "Vulnerability",
-                "Attack",
-                "Software piracy"
-            ]
+                "Star City",
+                "BGC",
+                "Antipolo City",
+                "Gotham"
+            ],
+            answer: "Gotham"
         },
         {
             number: 10,
-            question: "The ownership of ideas and control over the tangible or virtual representation of those ideas.",
+            question: "How many sides does a dodecagon have?",
             choices: [
-                "Threat",
-                "Vulnerability",
-                "Intellectual Property",
-                "Software piracy"
-            ]
+                "10",
+                "17",
+                "12",
+                "69"
+            ],
         }
-    ];    
-    
-    
+    ];
+
+
     function loadQuestion(index) {
         const questionContent = quizContents[index];
         const choicesContent = document.querySelector(".choices2");
