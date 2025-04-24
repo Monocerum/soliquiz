@@ -41,17 +41,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     function updateVisibility() {
-
         quizContainers.forEach(container => {
             container.style.display = 'none';
         });
-        
         
         for (let i = 0; i < visibleQuizzes; i++) {
             const index = (currentPosition + i) % quizContainers.length;
             quizContainers[index].style.display = 'block';
         }
-        
         
         quizzesContainer.style.transition = 'transform 0.3s ease-in-out';
     }
