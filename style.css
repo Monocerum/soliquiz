@@ -460,7 +460,7 @@ footer {
 }
 
 .abt {
-    margin-top: 50%;
+    margin-top: 30%;
 }
 
 .abt-card {
@@ -557,28 +557,10 @@ footer {
 }
 
 @media screen and (max-width: 1600px) {
-    #leiCard {
-        left: 20%;
+    .abt {
+        margin-top: 40%;
     }
-    
-    #roxCard {
-        left: 30%;
-    }
-    
-    #mikaCard {
-        z-index: 5;
-    }
-    
-    #bryllCard {
-        left: 55%;
-    }
-    
-    #kurtCard {
-        left: 65%;
-    }
-}
 
-@media screen and (max-width: 1600px) {
     #leiCard {
         left: 20%;
     }
@@ -601,6 +583,10 @@ footer {
 }
 
 @media screen and (max-width: 1350px) {
+    .abt {
+        margin-top: 45%;
+    }
+    
     #leiCard {
         left: 10%;
     }
