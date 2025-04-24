@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let selectedAnswers = [];
     let currentQ = 0;
     let questionAlreadyAnswered = []; 
+    let timerInterval; // Store the timer interval reference so we can clear it later
 
     const correctAnswers = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 
@@ -258,7 +259,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function showResults() {           
+    function showResults() {  
+        // Stop the timer when showing results
+        if (timerInterval) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+             
         quizName = "Software Engineering";      
         const questionContainer = document.querySelector(".question-container");                 
         questionContainer.innerHTML = `                     
@@ -314,7 +321,12 @@ document.addEventListener("DOMContentLoaded", () => {
         let totalSeconds = 40; 
         const timerElement = document.querySelector(".timer-js");
         
-        const timerInterval = setInterval(() => {
+        // Clear any existing timer before starting a new one
+        if (timerInterval) {
+            clearInterval(timerInterval);
+        }
+        
+        timerInterval = setInterval(() => {
             const minutes = Math.floor(totalSeconds / 60);
             const seconds = totalSeconds % 60;
             
@@ -322,6 +334,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             if (totalSeconds <= 0) {
                 clearInterval(timerInterval);
+                timerInterval = null;
                 showResults();
             }
 
