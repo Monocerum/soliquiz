@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let questionAlreadyAnswered = []; 
     let timerInterval; // Store the timer interval reference so we can clear it later
 
-    const correctAnswers = [0, 1, 2, 3, 2, 0, 1, 1, 3, 2];
+    const correctAnswers = [1, 2, 2, 3, 1, 2, 1, 3, 2, 1];
 
     startBtn.addEventListener("click", () => {
         startScreen.classList.add("fade-out");
@@ -20,102 +20,102 @@ document.addEventListener("DOMContentLoaded", () => {
     const quizContents = [
         {
             number: 1,
-            question: "A computer program and all documentation necessary to develop, install, use and maintain a complete system.",
+            question: "What is the primary goal of Artificial Intelligence?",
             choices: [
-                "Software",
-                "Hardware",
-                "System Architecture",
-                "Engineering"
+                "To mimic human emotions",
+                "To create intelligent entities that can reason and act rationally",
+                "To replace human workers in all industries",
+                "o design aesthetically pleasing robots"
             ]
         },
         {
             number: 2,
-            question: "Technological and managerial discipline concerned with systematic production and maintenance of software products–developed on time.",
+            question: "Which of the following is NOT one of the four approaches to defining AI?",
             choices: [
-                "Computer Engineer",
-                "Software Engineering",
-                "Scrum Master",
-                "Technological Engineering"
+                "Thinking humanly",
+                "Acting rationally",
+                "Thinking creatively",
+                "Acting humanly"
             ]
         },
         {
             number: 3,
-            question: "Which does not belong to the Software Development Myths",
+            question: "What does the Turing Test aim to evaluate?",
             choices: [
-                "Customer Myths",
-                "Practitioner Myths",
-                "Cost Predictability",
-                "Management Myths"
+                "A computer's ability to solve mathematical problems",
+                "A computer's ability to produce artistic works",
+                "A computer's ability to exhibit intelligent behavior indistinguishable from a human",
+                " A computer's speed in processing data"
             ]
         },
         {
             number: 4,
-            question: "In the generic view of software engineering, what stage does includes designing phase, the coding and implementation, and testing.",
+            question: "Which capability is NOT required for passing the Turing Test?",
             choices: [
-                "Specification Stage",
-                "Stage 3: Maintenance",
-                "Requirement Phase",
-                "Stage 2: Implementation"
+                "Natural language processing",
+                "Knowledge representation",
+                "Machine learning",
+                "Physical simulation of a human body"
             ]
         },
         {
             number: 5,
-            question: "In the generic view of software engineering, in what phase does it provide the definition of the information domain and function of the software.",
+            question: "What is meant by rationality in AI?",
             choices: [
-                "Specification Stage",
-                "Stage 3: Maintenance",
-                "Requirement Phase",
-                " Stage 2: Implementation"
+                "Acting based on emotions rather than logic",
+                "Doing the right thing based on available information",
+                "Mimicking human rational behaviors",
+                "Achieving the best result in all tasks based on goals"
             ]
         },
         {
             number: 6,
-            question: "In SDLC or Waterfall Model, in what process does analysis design occur?",
+            question: "A chess environment is best described as:",
             choices: [
-                "Modeling",
-                "Planning",
-                "Deployment",
-                "Construction"
+                "Fully observable and stochastic",
+                "Partially observable and deterministic",
+                "Fully observable and deterministic",
+                "Partially observable and stochastic"
             ]
         },
         {
             number: 7,
-            question: "A process consisting of a set of coordinated and controlled activities undertaken to achieve an objective conforming to specific requirements.",
+            question: "Which discipline has contributed theories of reasoning and learning to AI?",
             choices: [
-                "Project Management",
-                "Project",
-                "System Structure",
-                "Software Development Life Cycle"
+                "Sociology",
+                "Philosophy",
+                "Biology",
+                "Criminology"
             ]
         },
         {
             number: 8,
-            question: "A phase in project management where focuses on defining clear, discrete activities and the work needed to complete each activity within a single project.",
+            question: "What distinguishes rational agents from human-centered approaches in AI?",
             choices: [
-                "Executing the Project",
-                "Planning the Project",
-                "Initiating the Project",
-                "Controlling and Monitoring the Project"
+                "Rational agents focus solely on replicating human thought processes",
+                "Rational agents aim to pass the Turing Test exclusively",
+                "Rational agents are limited to solving mathematical problems only",
+                "Rational agents prioritize achieving ideal outcomes over mimicking humans"
             ]
         },
         {
             number: 9,
-            question: "A phase in project management where it focuses on putting the plans developed in project initiation phase and planning phase into action.",
+            question: "What does PEAS stand for in AI agent design?",
             choices: [
-                "Closing down the Project",
-                "Planning the Project",
-                "Initiating the Project",
-                "Executing the Project"
+                "Performance, Efficiency, Actuators, Sensors",
+                "Planning, Environment, Actions, Sensors",
+                "Performance, Environment, Actuators, Sensors",
+                "Perception, Environment, Actions, State"
             ]
         },
         {
             number: 10,
-            question: "One of the phases in project management focusing on bringing the project to an end.",
+            question: "Which type of agent uses condition-action rules to respond to current percepts?",
             choices: [
-                "Initiating the Project",
-                "Planning the Project",
-                "Closing down the Project",
-                " Executing the Project"
+                "Utility-based agent",
+                "Simple reflex agent",
+                "Model-based agent",
+                "Learning agent"
             ]
         }
     ];
@@ -318,10 +318,8 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     
     function startTimer() {
-        let totalSeconds = 40; 
+        let totalSeconds = 120; 
         const timerElement = document.querySelector(".timer-js");
-        
-        // Clear any existing timer before starting a new one
         if (timerInterval) {
             clearInterval(timerInterval);
         }

@@ -318,7 +318,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     
     function startTimer() {
-        let totalSeconds = 40; 
+        let totalSeconds = 120; 
         const timerElement = document.querySelector(".timer-js");
         
         // Clear any existing timer before starting a new one
