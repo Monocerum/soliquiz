@@ -270,7 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const questionContainer = document.querySelector(".question-container");                 
         questionContainer.innerHTML = `                     
             <h3 class="results-heading">SCORE</h3>                     
-            <p class="results-score">Points: <strong>${score} pts</strong> out of ${quizContents.length} pts    </p>            
+            <p class="results-score">Points: <strong>${score} pts</strong> out of ${quizContents.length} pts</p>            
             <div class="score-progress">
                 <div class="score-progress-bar" style="width: ${score / quizContents.length * 100}%;"></div>
             </div>  
