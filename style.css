@@ -361,7 +361,6 @@ footer {
 
 .quiz-container {
     display: flex;
-    flex: 0 0 22%; 
     flex-direction: column;
     align-items: center;
     opacity: 0.5;
@@ -373,6 +372,12 @@ footer {
         font-weight: 500;
         padding-top: 5%;
     }
+}
+
+.quiz-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .quiz-container:hover {
@@ -1589,43 +1594,40 @@ footer {
     overflow: hidden;
     width: 100%;
     position: relative;
-  }
+}
   
-  .quiz-container {
+.quiz-container {
     flex: 0 0 auto;
     width: calc(90% / 3); 
     padding: 10px;
     box-sizing: border-box;
     transition: all 0.3s ease;
-  }
+}
   
-  .quiz-controls {
+.quiz-controls {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-    padding: 0 20px;
-  }
+}
 
-  .next-container{
+.next-container{
     margin-right: 10%;
-  }
-
+}
   
-  .previous-container,
-  .next-container {
+.previous-container,
+.next-container {
     display: flex;
     align-items: center;
     cursor: pointer;
-    
-  }
+}
   
-  .previous-container p,
-  .next-container p {
+.previous-container p,
+.next-container p {
     margin: 0 20px;
-  }
+}
   
-  .previous.round,
-  .next.round {
+.previous.round,
+.next.round {
     display: inline-block;
     width: 40px;
     height: 40px;
@@ -1637,27 +1639,27 @@ footer {
     text-decoration: none;
     color: #333;
     transition: background-color 0.3s;
-  }
+}
   
-  .previous.round:hover,
-  .next.round:hover {
+.previous.round:hover,
+.next.round:hover {
     background-color: #ddd;
-  }
+}
   
 
-  @media (max-width: 1024px) {
+@media (max-width: 1024px) {
+    .quiz-container {
+      width: 35%; 
+    }
+}
+  
+@media (max-width: 768px) {
     .quiz-container {
       width: 50%; 
     }
-  }
-  
-  @media (max-width: 768px) {
-    .quiz-container {
-      width: 100%; 
-    }
-  }
+}
 
-  .clear-btn-container {
+.clear-btn-container {
     text-align: right;
     margin-top: 10px;
 }
@@ -1685,7 +1687,7 @@ footer {
     top: 0; left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7); /* Optional overlay */
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 999;
     align-items: center;
     justify-content: center;

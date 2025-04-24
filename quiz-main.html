@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=AR+One+Sans:wght@400..700&family=Anton&family=Bowlby+One+SC&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="style.css">
+    <script src="quizScript.js"></script>
     <title>Quiz Selection | Soliquiz</title>
 </head>
 <body>
@@ -104,78 +105,5 @@
             <a href="https://x.com/?lang=en" target="_blank" class="contact-img"><img src="images/twitter-logo.png" alt="Logo of Twitter" class="contact-logo"></a>
         </div>
     </footer>
-
-    <script>
-      
-    document.addEventListener('DOMContentLoaded', function() {
-        const quizContainers = document.querySelectorAll('.quiz-container');
-        const quizzesContainer = document.querySelector('.quizzes-container');
-        const previousBtn = document.querySelector('.previous-container');
-        const nextBtn = document.querySelector('.next-container');
-        
-    
-    let visibleQuizzes = 3;
-    let currentPosition = 0;
-    
-   
-    updateVisibility();
-    
-   
-    window.addEventListener('resize', function() {
-      
-      if (window.innerWidth < 768) {
-        visibleQuizzes = 1;
-      } else if (window.innerWidth < 1024) {
-        visibleQuizzes = 2;
-      } else {
-        visibleQuizzes = 3;
-      }
-      
-  
-      currentPosition = 0;
-      updateVisibility();
-    });
-    
-  
-    previousBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      currentPosition = (currentPosition - 1 + quizContainers.length) % quizContainers.length;
-      updateVisibility();
-    });
-    
-   
-    nextBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      currentPosition = (currentPosition + 1) % quizContainers.length;
-      updateVisibility();
-    });
-    
-   
-    function updateVisibility() {
-    
-      quizContainers.forEach(container => {
-        container.style.display = 'none';
-      });
-      
-     
-      for (let i = 0; i < visibleQuizzes; i++) {
-        const index = (currentPosition + i) % quizContainers.length;
-        quizContainers[index].style.display = 'block';
-      }
-      
-      
-      quizzesContainer.style.transition = 'transform 0.3s ease-in-out';
-    }
-    
-  
-    if (window.innerWidth < 768) {
-      visibleQuizzes = 1;
-    } else if (window.innerWidth < 1024) {
-      visibleQuizzes = 2;
-    }
-    
-    updateVisibility();
-  });
-    </script>
 </body>
 </html>
