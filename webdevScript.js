@@ -2,16 +2,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const startBtn = document.getElementById("startQuizBtn");
     const startScreen = document.getElementById("startScreenV2");
     const gameItem = document.querySelector(".game-item2");
+    let score = 0;
+    let selectedAnswers = [];
+    let currentQ = 0;
+
+    // Correct answers (index of the correct option for each question, 0-based)
+    const correctAnswers = [1, 2, 2, 3, 0, 2, 1, 3, 2, 1];
 
     startBtn.addEventListener("click", () => {
         startScreen.classList.add("fade-out");
         startScreen.style.display = "none";
         gameItem.style.display = "block";
-
-        setTimeout(() => {
-            box.style.display = "none";
-          }, 1000);
-    })
+        startTimer();
+    });
 
     const quizContents = [
         {
@@ -115,45 +118,122 @@ document.addEventListener("DOMContentLoaded", () => {
             ]
         }
     ];
-    
-    
+
+    function startTimer() {
+        let totalSeconds = 120;
+        const timerElement = document.querySelector(".timer-js");
+
+        const timerInterval = setInterval(() => {
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+
+            timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+            if (totalSeconds <= 0) {
+                clearInterval(timerInterval);
+                showResults();
+            }
+
+            totalSeconds--;
+        }, 1000);
+    }
+
     function loadQuestion(index) {
         const questionContent = quizContents[index];
         const choicesContent = document.querySelector(".choices2");
-    
+
         document.querySelector(".question-number2").textContent = `QUESTION NO. ${questionContent.number}`;
         document.querySelector(".question2").textContent = questionContent.question;
-    
+
         choicesContent.innerHTML = "";
-    
-        questionContent.choices.forEach(choiceText => {
+
+        questionContent.choices.forEach((choiceText, choiceIndex) => {
             const choiceContainer = document.createElement("div");
             choiceContainer.classList.add("choice-container");
     
             const choiceContent = document.createElement("p");
             choiceContent.classList.add("choice");
             choiceContent.textContent = choiceText;
+      
+            if (selectedAnswers[index] === choiceIndex) {
+                choiceContainer.classList.add("selected");
+            }
             
             choiceContainer.appendChild(choiceContent);
             choicesContent.appendChild(choiceContainer);
-        })
+            
+            
+            choiceContainer.addEventListener("click", () => {
+              
+                document.querySelectorAll(".choice-container").forEach(c => {
+                    c.classList.remove("selected");
+                    c.classList.remove("active");
+                });
+                
+                
+                choiceContainer.classList.add("selected");
+                choiceContainer.classList.add("active");
+                
+                
+                selectedAnswers[index] = choiceIndex;
+                
+              
+                if (choiceIndex === correctAnswers[index]) {
+                    score++;
+                }
+                
+                
+                document.getElementById(`Q${index + 1}`).parentElement.classList.add("answered");
+                
+                
+                setTimeout(() => {
+                    if (index < quizContents.length - 1) {
+                        currentQ++;
+                        loadQuestion(currentQ);
+                    } else {
+                        showResults();
+                    }
+                }, 1000);
+            });
+
+           
+            choiceContainer.addEventListener("mousedown", () => {
+                choiceContainer.classList.add("clicking");
+            });
+
+            choiceContainer.addEventListener("mouseup", () => {
+                choiceContainer.classList.remove("clicking");
+            });
+
+           
+            choiceContainer.addEventListener("mouseleave", () => {
+                choiceContainer.classList.remove("clicking");
+            });
+        });
+        
+        
+       
+        document.querySelector(".previous").style.visibility = index === 0 ? "hidden" : "visible";
+        document.querySelector(".next").style.visibility = index === quizContents.length - 1 ? "hidden" : "visible";
+        
+       
+        updateQuestionSlider(index);
     }
 
-    let currentQ = 0;
-    
+
     document.querySelector(".next").addEventListener("click", () => {
-        if (currentQ < quizContents.length) {
+        if (currentQ < quizContents.length - 1) {
             currentQ++;
             loadQuestion(currentQ);
         }
-    })
+    });
 
     document.querySelector(".previous").addEventListener("click", () => {
         if (currentQ > 0) {
             currentQ--;
             loadQuestion(currentQ);
         }
-    })
+    });
 
     loadQuestion(currentQ);
-})
+});
