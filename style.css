@@ -453,23 +453,37 @@ footer {
 .abt-card-container {
     display: flex;
     justify-content: center;
+    align-items: flex-end;
     width: 100%;
+    padding: 40px 0;
+    position: relative;
+}
+
+.abt {
+    margin-top: 50%;
 }
 
 .abt-card {
-    border-radius: 50px;
-    margin: 0;
-    align-items: center;
-    object-fit: cover;
+    border-radius: 40px;
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
     overflow: hidden;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+.abt-card:hover {
+    transform: translateY(-10px) scale(1.03);
 }
 
 .abt-text {
-    align-self: flex-start;
-    padding: 10% 2% 15% 10%;
+    z-index: 2;     
+    padding: 30px 20px 20px;
 }
 
 .abt-name, .abt-role {
@@ -478,50 +492,192 @@ footer {
 }
 
 .abt-name {
-    font-weight: normal;
-    font-size: 2em;
+    font-weight: bold;
+    font-size: 1.8em;
 }
 
 .abt-role {
-    font-weight: lighter;
-    font-size: 1.25em;
+    font-weight: 300;
+    font-size: 1.1em;
 }
 
 .abt-img {
-    height: 500px;
+    height: 320px;
+    align-self: center;
+    z-index: 1;
 }
-
-.abt-btns {
-    text-align: center;
-}
-
-.abt-btn {
-    padding-top: 1%;
-    background: none;
-    border: none;
-}
-
-
 
 #leiCard {
     background: linear-gradient(180deg, #26C9F3 0%, #187891 100%);
+    width: 250px;
+    left: 20%;
+    transform: rotate(-6deg) translateY(20px);
+    z-index: 1;
+    height: 400px;
 }
 
 #roxCard {
     background: linear-gradient(180deg, #00BA9B 0%, #009E83 100%);
+    width: 250px;
+    left: 32%;
+    transform: rotate(-3deg) translateY(10px);
+    z-index: 2;
+    height: 450px;
 }
 
 #mikaCard {
     background: linear-gradient(180deg, #E7809B 0%, #F33E6D 100%);
+    width: 250px;
+    z-index: 5;
+    height: 500px;
 }
 
 #bryllCard {
     background: linear-gradient(180deg, #DC281E 0%, #981912 100%);
+    width: 250px;
+    left: 55%;
+    transform: rotate(3deg) translateY(10px);
+    z-index: 2;
+    height: 450px;
 }
 
 #kurtCard {
     background: linear-gradient(180deg, #215621 0%, #0A1A0A 100%);
+    width: 250px;
+    left: 67%;
+    transform: rotate(6deg) translateY(20px);
+    z-index: 1;
+    height: 400px;
 }
+
+#roxCard:hover, #kurtCard:hover, #bryllCard:hover, #leiCard:hover, #mikaCard:hover {
+    transform: scale(1.2);
+    z-index: 9;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (max-width: 1600px) {
+    #leiCard {
+        left: 20%;
+    }
+    
+    #roxCard {
+        left: 30%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 55%;
+    }
+    
+    #kurtCard {
+        left: 65%;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    #leiCard {
+        left: 20%;
+    }
+    
+    #roxCard {
+        left: 30%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 55%;
+    }
+    
+    #kurtCard {
+        left: 65%;
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    #leiCard {
+        left: 10%;
+    }
+    
+    #roxCard {
+        left: 25%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 55%;
+    }
+    
+    #kurtCard {
+        left: 70%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .abt {
+        margin-top: 60%;
+    }
+
+    #leiCard {
+        left: 5%;
+    }
+    
+    #roxCard {
+        left: 20%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 55%;
+    }
+    
+    #kurtCard {
+        left: 70%;
+    }
+}
+
+@media screen and (max-width: 870px) {
+    .abt-card-container {
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        width: 90%;
+        gap: 30px;
+        margin: 5%;
+    }
+
+    .abt-card {
+        position: static;
+        transform: none !important;
+        width: 90%;
+        max-width: 300px;
+        rotate: 0deg !important;
+    }
+
+    #leiCard, #roxCard, #mikaCard, #bryllCard, #kurtCard {
+        left: auto !important;
+        z-index: auto;
+        rotate: 0deg;
+        height: 500px;
+    }
+    
+    .abt {
+        margin-top: 0;
+    }
+}
+
 
 /* SCORE PAGE */
 .score-main {
