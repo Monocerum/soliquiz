@@ -556,6 +556,292 @@ footer {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 
+@media screen and (min-width: 6500px) {
+    .abt {
+        margin-top: 40%;
+    }
+
+    #leiCard {
+        left: 42%;
+    }
+    
+    #roxCard {
+        left: 45%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 51%;
+    }
+    
+    #kurtCard {
+        left: 54%;
+    }
+}
+
+@media screen and (min-width: 5500px) and (max-width: 6500px) {
+    .abt {
+        margin-top: 40%;
+    }
+
+    #leiCard {
+        left: 41%;
+    }
+    
+    #roxCard {
+        left: 44%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 51%;
+    }
+    
+    #kurtCard {
+        left: 54%;
+    }
+}
+
+@media screen and (min-width: 5100px) and (max-width: 5500px) {
+    .abt {
+        margin-top: 40%;
+    }
+
+    #leiCard {
+        left: 39%;
+    }
+    
+    #roxCard {
+        left: 43%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 52%;
+    }
+    
+    #kurtCard {
+        left: 54%;
+    }
+}
+
+@media screen and (min-width: 4700px) and (max-width: 5100px) {
+    .abt {
+        margin-top: 40%;
+    }
+
+    #leiCard {
+        left: 38%;
+    }
+    
+    #roxCard {
+        left: 43%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 52%;
+    }
+    
+    #kurtCard {
+        left: 56%;
+    }
+}
+
+@media screen and (min-width: 3700px) and (max-width: 4700px) {
+    .abt {
+        margin-top: 40%;
+    }
+
+    #leiCard {
+        left: 37%;
+    }
+    
+    #roxCard {
+        left: 42%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 52%;
+    }
+    
+    #kurtCard {
+        left: 57%;
+    }
+}
+
+@media screen and (min-width: 3300px) and (max-width: 3700px) {
+    .abt {
+        margin-top: 40%;
+    }
+
+    #leiCard {
+        left: 35%;
+    }
+    
+    #roxCard {
+        left: 40%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 53%;
+    }
+    
+    #kurtCard {
+        left: 59%;
+    }
+}
+
+@media screen and (min-width: 3000px) and (max-width: 3300px) {
+    .abt {
+        margin-top: 40%;
+    }
+
+    #leiCard {
+        left: 33%;
+    }
+    
+    #roxCard {
+        left: 39%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 53%;
+    }
+    
+    #kurtCard {
+        left: 59%;
+    }
+}
+
+@media screen and (min-width: 2700px) and (max-width: 3000px) {
+    .abt {
+        margin-top: 40%;
+    }
+
+    #leiCard {
+        left: 30%;
+    }
+    
+    #roxCard {
+        left: 38%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 54%;
+    }
+    
+    #kurtCard {
+        left: 62%;
+    }
+}
+
+@media screen and (min-width: 2400px) and (max-width: 2700px) {
+    .abt {
+        margin-top: 40%;
+    }
+
+    #leiCard {
+        left: 28%;
+    }
+    
+    #roxCard {
+        left: 37%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 54%;
+    }
+    
+    #kurtCard {
+        left: 63%;
+    }
+}
+
+@media screen and (min-width: 2050px) and (max-width: 2400px) {
+    .abt {
+        margin-top: 40%;
+    }
+
+    #leiCard {
+        left: 25%;
+    }
+    
+    #roxCard {
+        left: 35%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 55%;
+    }
+    
+    #kurtCard {
+        left: 65%;
+    }
+}
+
+@media screen and (min-width: 2000px) and (max-width: 2050px) {
+    .abt {
+        margin-top: 40%;
+    }
+
+    #leiCard {
+        left: 22%;
+    }
+    
+    #roxCard {
+        left: 32%;
+    }
+    
+    #mikaCard {
+        z-index: 5;
+    }
+    
+    #bryllCard {
+        left: 55%;
+    }
+    
+    #kurtCard {
+        left: 65%;
+    }
+}
+
 @media screen and (max-width: 1600px) {
     .abt {
         margin-top: 40%;
