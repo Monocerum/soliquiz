@@ -290,8 +290,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     submitBtn.addEventListener("click", () => {
-        showResults();
+        showConfirmation();
     });
+    
+    const confirmationContainer = document.getElementById("confirmationContainer");
+    const returnBtn = document.querySelector(".return-btn");
+    const confirmBtn = document.querySelector(".confirm-btn");
+
+    function showConfirmation() {
+        confirmationContainer.style.display = "flex";
+    }
+
+    returnBtn.addEventListener("click", () => {
+        confirmationContainer.style.display = "none";
+    });
+
+    confirmBtn.addEventListener("click", () => {
+        confirmationContainer.style.display = "none";
+        showResults();
+    })
     
     function startTimer() {
         let totalSeconds = 40; 

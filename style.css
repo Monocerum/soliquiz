@@ -1095,6 +1095,15 @@ footer {
     .quiz-header-subheading {
         font-size: 1.5em;
     }
+
+    .v2-img-container {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .v2-instruction-img2 {
+        width: 75%;
+    }
 }
 
 @media screen and (max-width: 400px) {
@@ -1666,4 +1675,156 @@ footer {
 
 .clear-btn:hover {
     background-color: rgb(255, 255, 255);
+}
+
+/* CONFIRMATION POPUP */
+
+.confirm {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* Optional overlay */
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+
+    .confirmation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: black;
+        width: 80%;;
+        border-radius: 50px;
+
+        .left-confirmation {
+            padding-left: 5%;
+
+            .confirmation-heading {
+                font-family: var(--tertiaryfont);
+                margin: 0;
+                font-size: 3em;
+            }
+
+            .confirmation-subheading {
+                font-family: var(--tertiaryfont);
+                font-size: 2em;
+                margin: 0;
+            }
+
+            .confirmation-reminder {
+                font-style: italic;
+            }
+
+            .return-btn, .confirm-btn {
+                font-size: 1em;
+                border: none;
+                border-radius: 25px;
+                width: 40%;
+                cursor: pointer;
+                font-weight: bold;
+            }
+
+            .confirm-btn-container {
+                button {
+                    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+                }
+
+                button:hover {
+                    transform: scale(1.1);
+                    box-shadow: 0 0 15px var(--secondary), 0 0 40px var(--secondary);
+                }
+
+                .return-btn {
+                    padding: 3%;
+                    margin-right: 5%;
+                    background-color: white;
+                    color: black;
+                }
+    
+                .confirm-btn {
+                    padding: 3%;
+                    background-color: var(--green);
+                }
+            }
+
+        }
+
+        .right-confirmation {
+            display: flex;
+
+            img {
+                border-radius: 0 0 50px 0;
+            }
+        }
+    }
+}
+
+/* RESPONSIVE STYLES */
+@media screen and (max-width: 1050px) {
+    .confirm {
+        & .confirmation {
+            & .left-confirmation {
+                .confirmation-heading {
+                    font-size: 2.5em;
+                }
+
+                .confirmation-subheading {
+                    font-size: 1.5em;
+                }
+
+                .confirm-btn-container {
+                    display: flex;
+                    flex-direction: column;
+            
+                    .return-btn, .confirm-btn {
+                        width: 80%;
+                    }
+
+                    .return-btn {
+                        margin-bottom: 5%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .confirm {
+        .confirmation {
+            .left-confirmation {
+                padding: 10%;
+                display: flex;
+                flex-direction: column;
+                
+                .confirmation-heading {
+                    font-size: 2.5em;
+                }
+
+                .confirmation-subheading {
+                    font-size: 1.5em;
+                }
+
+                .confirm-btn-container {
+                    display: flex;
+                    flex-direction: column;
+            
+                    .return-btn, .confirm-btn {
+                        width: 100%;
+                        margin-right: 0;
+                    }
+
+                    .return-btn {
+                        margin-bottom: 5%;
+                    }
+                }
+            }
+
+            .right-confirmation {
+                display: none;
+            }
+        }
+    }
 }
