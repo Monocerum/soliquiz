@@ -1109,6 +1109,7 @@ footer {
 .v2-instructions {
     display: flex;
     align-items: flex-end;
+    justify-content: space-between;
 }
 
 .v2-instruction-container {
