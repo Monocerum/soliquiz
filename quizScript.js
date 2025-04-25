@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', function() {
     
     if (window.innerWidth < 768) {
-        visibleQuizzes = 1;
-    } else if (window.innerWidth < 1024) {
         visibleQuizzes = 2;
+    } else if (window.innerWidth < 1024) {
+        visibleQuizzes = 3;
     } else {
         visibleQuizzes = 3;
     }
@@ -54,11 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    if (window.innerWidth < 768) {
-            visibleQuizzes = 1;
-        } else if (window.innerWidth < 1024) {
-            visibleQuizzes = 2;
-    }
 
     updateVisibility();
 });
