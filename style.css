@@ -1293,6 +1293,7 @@ footer {
 .questions-images{
     width: 100%;
 }
+
 .left-question{
    width: 800px;
 }
@@ -2308,6 +2309,34 @@ footer {
       right: auto;
       font-size: 1em;
       margin-top: 1.5rem;
+    }
+
+    .question2-img {
+        width: 3em;
+        height: 5em;
+        border-radius: 1em;
+    }
+
+    .question-container2 {
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 2em;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 0 5% 5% 5%;
+        padding: 2% 0;
+        justify-content: flex-start;
+        min-height: 20em;
+    }
+
+    .left-question{
+        width: 300px;
+        margin-top: 30px ;
+     }
+
+     .questions-images{
+        width: 100%;
+        align-items: center;
     }
   }  
   
