@@ -292,11 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     const questionContainer = document.querySelector(".question-container2");
-    const submitBtn = document.createElement("button");
-    submitBtn.textContent = "Submit Quiz";
-    submitBtn.classList.add("submit-btn");
-    submitBtn.style.display = "none";
-    questionContainer.appendChild(submitBtn);
+    const submitBtn = document.querySelector(".submit-btn2");
     
     function checkAllQuestionsAnswered() {
         const allAnswered = questionAlreadyAnswered.every(answered => answered);
@@ -400,7 +396,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 cursor: not-allowed;
                 pointer-events: none;
             }
-            .submit-btn {
+            .submit-btn2 {
                 margin-top: 20px;
                 padding: 10px 20px;
                 background-color: #4CAF50;
@@ -410,7 +406,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 cursor: pointer;
                 font-size: 16px;
             }
-            .submit-btn:hover {
+            .submit-btn2:hover {
                 background-color: #45a049;
             }
         `;
