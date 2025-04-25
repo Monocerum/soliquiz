@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
             number: 8,
-            question: `Given this series of operations:\n\nvar y = 5;\nalert(++y);\ny = y + 2;\nalert(y--);\ny--;\nalert(--y);\nalert(y++);\ny++;\nalert(y);\n\nWhat will the last alert(y) display?`,
+            question: "Given this series of operations:\n\nvar y = 5;\nalert(++y);\ny = y + 2;\nalert(y--);\ny--;\nalert(--y);\nalert(y++);\ny++;\nalert(y);\n\nWhat will the last alert(y) display?",
             choices: [
                 "5",
                 "7",
