@@ -260,15 +260,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function showResults() {  
-        // Stop the timer when showing results
         if (timerInterval) {
             clearInterval(timerInterval);
             timerInterval = null;
         }
              
         quizName = "Trivia";      
-        const questionContainer = document.querySelector(".question-container2");                 
-        questionContainer.innerHTML = `                     
+        const questionContainer = document.querySelector(".question-container2");
+        const resultContainer = document.querySelector(".result-container");
+        
+        questionContainer.style.display = "none";
+
+        resultContainer.innerHTML = `                     
             <h3 class="results-heading">SCORE</h3>                     
             <p class="results-score">Points: <strong>${score} pts</strong> out of ${quizContents.length} pts</p>            
             <div class="score-progress">
@@ -279,8 +282,6 @@ document.addEventListener("DOMContentLoaded", () => {
         
         localStorage.setItem('quizScore', score);                 
         localStorage.setItem('quizName', quizName);                           
-        
-        document.querySelector(".question-selection").style.display = "none";                              
         
         document.querySelector(".restart-btn").addEventListener("click", () => {                                    
             location.reload();                 
@@ -324,7 +325,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let totalSeconds = 120; 
         const timerElement = document.querySelector(".timer-js");
         
-        // Clear any existing timer before starting a new one
         if (timerInterval) {
             clearInterval(timerInterval);
         }

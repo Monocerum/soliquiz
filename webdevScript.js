@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let timerInterval;
     let questionAlreadyAnswered = [];
 
-    // Correct answers (index of the correct option for each question, 0-based)
     const correctAnswers = [2, 1, 1, 0, 0, 1, 3, 1, 2, 2];
 
     startBtn.addEventListener("click", () => {
@@ -260,7 +259,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function showResults() {  
-        // Stop the timer when showing results
         if (timerInterval) {
             clearInterval(timerInterval);
             timerInterval = null;
@@ -283,10 +281,8 @@ document.addEventListener("DOMContentLoaded", () => {
         
         localStorage.setItem('quizScore', score);                 
         localStorage.setItem('quizName', quizName);                           
-        
-        document.querySelector(".question-selection").style.display = "none";                              
-        
-        document.querySelector(".restart-btn").addEventListener("click", () => {                                    
+
+        document.querySelector(".restart-btn").addEventListener("click", () => {                         
             location.reload();                 
         });             
     }
@@ -324,7 +320,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let totalSeconds = 120; 
         const timerElement = document.querySelector(".timer-js");
         
-        // Clear any existing timer before starting a new one
         if (timerInterval) {
             clearInterval(timerInterval);
         }

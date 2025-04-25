@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let selectedAnswers = [];
     let currentQ = 0;
     let questionAlreadyAnswered = []; 
-    let timerInterval; // Store the timer interval reference so we can clear it later
+    let timerInterval;
 
     const correctAnswers = [0, 1, 2, 3, 2, 0, 1, 1, 3, 2];
 
@@ -258,7 +258,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function showResults() {  
-        // Stop the timer when showing results
         if (timerInterval) {
             clearInterval(timerInterval);
             timerInterval = null;
@@ -322,7 +321,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let totalSeconds = 120; 
         const timerElement = document.querySelector(".timer-js");
         
-        // Clear any existing timer before starting a new one
         if (timerInterval) {
             clearInterval(timerInterval);
         }
