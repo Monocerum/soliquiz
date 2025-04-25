@@ -292,7 +292,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     const questionContainer = document.querySelector(".question-container2");
-    const submitBtn = document.querySelector(".submit-btn2");
+    const submitBtn = document.createElement("button");
+    submitBtn.textContent = "Submit Quiz";
+    submitBtn.classList.add("submit-btn");
+    submitBtn.style.display = "none";
+    questionContainer.appendChild(submitBtn);
     
     function checkAllQuestionsAnswered() {
         const allAnswered = questionAlreadyAnswered.every(answered => answered);
