@@ -281,9 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `;                               
         
         localStorage.setItem('quizScore', score);                 
-        localStorage.setItem('quizName', quizName);                           
-        
-        document.querySelector(".question-selection").style.display = "none";                              
+        localStorage.setItem('quizName', quizName);                                              
         
         document.querySelector(".restart-btn").addEventListener("click", () => {                                    
             location.reload();                 
