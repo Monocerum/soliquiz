@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let questionAlreadyAnswered = [];
 
     // Correct answers (index of the correct option for each question, 0-based)
-    const correctAnswers = [1, 2, 2, 3, 0, 2, 1, 3, 2, 1];
+    const correctAnswers = [2, 1, 1, 0, 0, 1, 3, 1, 2, 2];
 
     startBtn.addEventListener("click", () => {
         startScreen.classList.add("fade-out");
