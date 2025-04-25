@@ -267,8 +267,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
              
         quizName = "Trivia";      
-        const questionContainer = document.querySelector(".question-container2");                 
-        questionContainer.innerHTML = `                     
+        const questionContainer = document.querySelector(".question-container2");
+        const resultContainer = document.querySelector(".result-container");
+        
+        questionContainer.style.display = "none";
+
+        resultContainer.innerHTML = `                     
             <h3 class="results-heading">SCORE</h3>                     
             <p class="results-score">Points: <strong>${score} pts</strong> out of ${quizContents.length} pts</p>            
             <div class="score-progress">
@@ -288,11 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     const questionContainer = document.querySelector(".question-container2");
-    const submitBtn = document.createElement("button");
-    submitBtn.textContent = "Submit Quiz";
-    submitBtn.classList.add("submit-btn");
-    submitBtn.style.display = "none";
-    questionContainer.appendChild(submitBtn);
+    const submitBtn = document.querySelector(".submit-btn2");
     
     function checkAllQuestionsAnswered() {
         const allAnswered = questionAlreadyAnswered.every(answered => answered);
