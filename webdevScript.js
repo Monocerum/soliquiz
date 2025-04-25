@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
             currentQuestionItem.classList.add('active');
         }
         
-        const questionsContainer = document.querySelector('.questions-container');
+        const questionsContainer = document.querySelector('.question-container2');
         const activeQuestion = document.querySelector('.question-item2.active');
         
         if (questionsContainer && activeQuestion) {
@@ -267,7 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
              
         quizName = "Web Development";      
-        const questionContainer = document.querySelector(".question-container");                 
+        const questionContainer = document.querySelector(".question-container2");                 
         questionContainer.innerHTML = `                     
             <h3 class="results-heading">SCORE</h3>                     
             <p class="results-score">Points: <strong>${score} pts</strong> out of ${quizContents.length} pts</p>            
@@ -287,7 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });             
     }
     
-    const questionContainer = document.querySelector(".question-container");
+    const questionContainer = document.querySelector(".question-container2");
     const submitBtn = document.createElement("button");
     submitBtn.textContent = "Submit Quiz";
     submitBtn.classList.add("submit-btn");
@@ -345,7 +345,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000);
     }
 
-    const questionsContainer = document.querySelector('.questions-container');
+    const questionsContainer = document.querySelector('.question-container2');
     if (questionsContainer) {
         questionsContainer.style.display = 'flex';
         questionsContainer.style.overflowX = 'auto';
@@ -356,27 +356,27 @@ document.addEventListener("DOMContentLoaded", () => {
         
         const style = document.createElement('style');
         style.textContent = `
-            .questions-container::-webkit-scrollbar {
+            .question-container2::-webkit-scrollbar {
                 display: none;
             }
-            .question-item {
+            .question-item2 {
                 flex: 0 0 auto;
                 margin: 0 10px;
                 transition: transform 0.3s ease, opacity 0.3s ease;
                 cursor: pointer;
             }
-            .question-item.active {
+            .question-item2.active {
                 transform: scale(1.0);
                 z-index: 10;
                 position: relative;
             }
-            .question-item:not(.active) {
+            .question-item2:not(.active) {
                 opacity: 0.7;
             }
-            .question-item.answered {
+            .question-item2.answered {
                 position: relative;
             }
-            .question-item.answered::after {
+            .question-item2.answered::after {
                 content: '✓';
                 position: absolute;
                 top: 5px;
