@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let selectedAnswers = [];
     let currentQ = 0;
     let questionAlreadyAnswered = []; 
-    let timerInterval; // Store the timer interval reference so we can clear it later
+    let timerInterval;
 
     const correctAnswers = [1, 2, 2, 3, 1, 2, 1, 3, 2, 1];
 
@@ -260,7 +260,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function showResults() {  
-        // Stop the timer when showing results
         if (timerInterval) {
             clearInterval(timerInterval);
             timerInterval = null;

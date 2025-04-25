@@ -259,7 +259,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function showResults() {  
-        // Stop the timer when showing results
         if (timerInterval) {
             clearInterval(timerInterval);
             timerInterval = null;
@@ -325,7 +324,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let totalSeconds = 120; 
         const timerElement = document.querySelector(".timer-js");
         
-        // Clear any existing timer before starting a new one
         if (timerInterval) {
             clearInterval(timerInterval);
         }
