@@ -4175,7 +4175,6 @@ footer {
 .results-heading {
     font-size: 3rem;
     padding: 0;
-
     margin: 0 0 0.5rem 0;
     text-align: center;
 }
@@ -4220,6 +4219,19 @@ footer {
 
 .restart-btn:hover {
     background-color: var(--green);
+}
+
+/* RESPONSIVE STYLES */
+@media screen and (max-width: 1000px) {
+    .score-progress {
+        width: 80%;
+    }    
+
+    .results-score {
+        font-size: 1rem;
+        margin: 1rem 0;
+        text-align: center;
+    }
 }
 
 .quizzes-container {
