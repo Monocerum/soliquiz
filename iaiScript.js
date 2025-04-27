@@ -8,6 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let questionAlreadyAnswered = []; 
     let timerInterval;
 
+    const audio = document.getElementById("background-audio");
+
+    audio.volume = 0.5;
+
     const correctAnswers = [1, 2, 2, 3, 1, 2, 1, 3, 2, 1];
 
     startBtn.addEventListener("click", () => {
@@ -178,6 +182,8 @@ document.addEventListener("DOMContentLoaded", () => {
             
             choiceContainer.appendChild(choiceContent);
             choicesContent.appendChild(choiceContainer);
+
+            const choiceClickSound = new Audio('audio/click-sound.mp3.MP3');
             
             choiceContainer.addEventListener("click", () => {
                 document.querySelectorAll(".choice-container").forEach(c => {
@@ -187,6 +193,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 choiceContainer.classList.add("selected");
                 choiceContainer.classList.add("active");
+
+                choiceClickSound.play();
+                choiceClickSound.volume = 2;
                 
                 if (questionAlreadyAnswered[index] && selectedAnswers[index] !== choiceIndex) {
                     if (selectedAnswers[index] === correctAnswers[index] && choiceIndex !== correctAnswers[index]) {

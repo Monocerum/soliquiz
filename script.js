@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
+const audio = document.getElementById("background-audio");
+
+audio.volume = 0.5;
 
 if (hamburger && navLinks) {
  hamburger.addEventListener('click', (e) => {
