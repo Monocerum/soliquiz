@@ -102,18 +102,18 @@ h1, h2, h3 {
     padding-right: 5%;
 }
 
-.toggle-box {
+.menu-box-icon {
     width: 1.5em;
     transition: transform 0.2s ease-in, color 0.2s ease-in;
 }
 
-.toggle-box:hover {
+.menu-box-icon:hover {
     transform: scale(1.1);
     transition: transform 0.3s ease-out, color 0.3s ease-out;
     cursor: pointer;
 }
 
-.nav-toggle {
+.menu-box {
     display: flex;
 }
 
@@ -155,7 +155,7 @@ nav {
         order: 1;
     }
 
-    .nav-toggle {
+    .menu-box {
         order: 2;
         margin-left: 10px;
     }
@@ -166,7 +166,6 @@ nav {
         padding: 5% 0
     }
 
-   
     .nav-links {
         display: none;
         position: absolute;
@@ -1316,7 +1315,7 @@ footer {
     display: flex;
     align-items: center;
 
-    .toggle-box {
+    .menu-box-icon {
         padding-right: 20%;
     }
 }
