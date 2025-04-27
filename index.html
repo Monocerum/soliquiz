@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=AR+One+Sans:wght@400..700&family=Anton&family=Bowlby+One+SC&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>Home | Soliquiz</title>
 </head>
 <body>
@@ -74,32 +75,6 @@
             <a href="https://x.com/?lang=en" target="_blank" class="contact-img"><img src="images/twitter-logo.png" alt="Logo of Twitter" class="contact-logo"></a>
         </div>
     </footer>
-    <script>
-       // Final version with all features
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
 
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            navLinks.classList.toggle('active');
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
-                navLinks.classList.remove('active');
-            }
-        });
-
-        // Close menu when clicking links
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    }
-});
-    </script>
 </body>
 </html>
