@@ -15,7 +15,6 @@
 }
 
 html {
-    font-size: 100%;
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
@@ -37,6 +36,8 @@ body {
 h1, h2, h3 {
     font-family: var(--secondaryfont);
 }
+
+/* NAVIGATION STYLES */
 
 .nav-content {
     display: flex;
@@ -121,7 +122,7 @@ h1, h2, h3 {
 
 nav {
     position: relative; 
-  }
+}
 
 .hamburger {
     display: none;
@@ -139,8 +140,6 @@ nav {
     margin: 5px 0;
     margin-top: -2px;
     transition: 0.3s;
-    /*margin-right: -10px;*/
-
 }
 
 .hamburger:hover {
@@ -183,7 +182,6 @@ nav {
     .nav-links.active {
         display: block !important;
     }
-
    
     .nav-list {
         flex-direction: column;
@@ -198,9 +196,6 @@ nav {
         padding: 0;
     }
 }
-
-
-
 
 /* INDEX */
 /* HERO SECTION */
@@ -1298,14 +1293,14 @@ footer {
 
 
 .start-quiz-btn2, .start-quiz-btn3 {
-        &:hover {
-            color: var(--white);
-            cursor: pointer;
-            box-shadow: 0 0 15px var(--lightergreen), 0 0 40px var(--lightergreen);
-            font-weight: bolder;
-            text-shadow: 0 0 15px var(--lightergreen), 0 0 40px var(--lightergreen);
-        }
+    &:hover {
+        color: var(--white);
+        cursor: pointer;
+        box-shadow: 0 0 15px var(--lightergreen), 0 0 40px var(--lightergreen);
+        font-weight: bolder;
+        text-shadow: 0 0 15px var(--lightergreen), 0 0 40px var(--lightergreen);
     }
+}
 
 .quiz-nav {
     display: flex;
