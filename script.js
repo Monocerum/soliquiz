@@ -1,28 +1,44 @@
-document.addEventListener('DOMContentLoaded', () => {
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-const audio = document.getElementById("background-audio");
+document.querySelector('.hamburger').addEventListener('click', function() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+  });
 
-audio.volume = 0.5;
+  document.addEventListener('DOMContentLoaded', function() {
+    const clickSound = document.getElementById('clickSound');
+    const clickableElements = document.querySelectorAll('button, a');
 
-if (hamburger && navLinks) {
- hamburger.addEventListener('click', (e) => {
-     e.stopPropagation();
-     navLinks.classList.toggle('active');
- });
+    clickableElements.forEach(element => {
+        element.addEventListener('click', function(e) {
+            if (element.tagName === 'A') {
+                e.preventDefault();
+                const href = this.href;
+                const target = this.target;
+                
+                clickSound.currentTime = 0;
+                clickSound.play();
 
- document.addEventListener('click', (e) => {
-     if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
-         navLinks.classList.remove('active');
-     }
- });
-
-
- document.querySelectorAll('.nav-link').forEach(link => {
-     link.addEventListener('click', () => {
-         navLinks.classList.remove('active');
-     });
- });
-}
+                setTimeout(() => {
+                    if (target === '_blank') {
+                        window.open(href, '_blank');
+                    } 
+                    else if (href.includes('#')) {
+                        const targetId = href.split('#')[1];
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                            history.pushState(null, null, `#${targetId}`);
+                        } else {
+                            window.location.href = href;
+                        }
+                    } 
+                    else {
+                        window.location.href = href;
+                    }
+                }, 100);
+            } else {
+                clickSound.currentTime = 0;
+                clickSound.play();
+            }
+        });
+    });
 });
-
