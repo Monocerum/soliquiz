@@ -195,7 +195,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 choiceContainer.classList.add("active");
 
                 choiceClickSound.play();
-                choiceClickSound.volume = 2;
                 
                 if (questionAlreadyAnswered[index] && selectedAnswers[index] !== choiceIndex) {
                     if (selectedAnswers[index] === correctAnswers[index] && choiceIndex !== correctAnswers[index]) {
