@@ -346,7 +346,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const questionsContainer = document.querySelector('.question-container2');
     if (questionsContainer) {
         questionsContainer.style.display = 'flex';
-        questionsContainer.style.overflowX = 'auto';
         questionsContainer.style.scrollBehavior = 'smooth';
         questionsContainer.style.padding = '10px 0';
         questionsContainer.style.scrollbarWidth = 'none';
