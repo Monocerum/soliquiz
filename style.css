@@ -535,6 +535,12 @@ footer {
 }
 
 /* ABOUT US */
+.abt-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .abt-card-container {
     display: flex;
     justify-content: center;
