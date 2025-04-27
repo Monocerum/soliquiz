@@ -360,7 +360,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             .question-item2 {
                 flex: 0 0 auto;
-                margin: 0 10px;
+                margin: 0;
                 transition: transform 0.3s ease, opacity 0.3s ease;
                 cursor: pointer;
             }
