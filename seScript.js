@@ -176,6 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             choiceContainer.appendChild(choiceContent);
             choicesContent.appendChild(choiceContainer);
+            const choiceClickSound = new Audio('audio/click-sound.mp3.MP3');
             
             choiceContainer.addEventListener("click", () => {
                 document.querySelectorAll(".choice-container").forEach(c => {
@@ -185,6 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 choiceContainer.classList.add("selected");
                 choiceContainer.classList.add("active");
+                choiceClickSound.play();
                 
                 if (questionAlreadyAnswered[index] && selectedAnswers[index] !== choiceIndex) {
                     if (selectedAnswers[index] === correctAnswers[index] && choiceIndex !== correctAnswers[index]) {
