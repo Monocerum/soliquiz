@@ -4502,3 +4502,41 @@ footer {
         }
     }
 }
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInAnimation 1.2s ease-out forwards;
+  }
+
+  .fade-in-delay-1 {
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes fadeInAnimation {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .zoom-in {
+    opacity: 0;
+    transform: scale(0.9);
+    animation: zoomInAnimation 1.2s ease-out forwards;
+  }
+
+  @keyframes zoomInAnimation {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
