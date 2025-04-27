@@ -117,6 +117,88 @@ h1, h2, h3 {
     display: flex;
 }
 
+/*hamborgir*/
+
+/* Hamburger default styles */
+
+nav {
+    position: relative; 
+  }
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger-bar {
+    display: block;
+    width: 25px;
+    height: 6px;
+    background: #ffffff;
+    margin: 5px 0;
+    margin-top: -2px;
+    transition: 0.3s;
+    /*margin-right: -10px;*/
+
+}
+
+.hamburger:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-out, color 0.3s ease-out;
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    /* Show hamburger and adjust layout */
+    .hamburger {
+        display: block;
+        order: 1;
+    }
+
+    .nav-toggle {
+        order: 2;
+        margin-left: 10px;
+    }
+
+    .nav-right {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Hide nav links by default */
+    .nav-links {
+        display: none;
+  position: absolute;
+  top: 100%;
+  left: 0; /* Changed from right: 0 */
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.9); /* Add background for visibility */
+
+    }
+
+    .nav-links.active {
+        display: block !important;
+    }
+
+    /* Stack navigation items vertically */
+    .nav-list {
+        flex-direction: column;
+    }
+
+    .nav-item {
+        margin: 10px 0;
+    }
+}
+
+
+
+
 /* INDEX */
 /* HERO SECTION */
 .hero {

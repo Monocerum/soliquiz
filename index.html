@@ -25,12 +25,20 @@
                             <li class="nav-item" id="navScores"><a href="scores.html" class="nav-link">Scores</a></li>
                         </ul>
                     </div>
+                    
+                    <button class="hamburger">
+                        <span class="hamburger-bar"></span>
+                        <span class="hamburger-bar"></span>
+                        <span class="hamburger-bar"></span>
+                    </button>
+
                     <div class="nav-toggle">
                         <a href="quiz-main.html" class="nav-link"> <img src="images/menu-box.png" alt="" class="toggle-box"></a></li>
                     </div>
                 </div>
             </div>
         </nav>
+        
     </header>
     <main>
         <section class="hero" id="hero">
@@ -66,5 +74,32 @@
             <a href="https://x.com/?lang=en" target="_blank" class="contact-img"><img src="images/twitter-logo.png" alt="Logo of Twitter" class="contact-logo"></a>
         </div>
     </footer>
+    <script>
+       // Final version with all features
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+});
+    </script>
 </body>
 </html>
