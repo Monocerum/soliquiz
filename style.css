@@ -118,7 +118,7 @@ h1, h2, h3 {
     display: flex;
 }
 
-/*hamborgir*/
+/*hamburger*/
 
 nav {
     position: relative; 
@@ -166,7 +166,7 @@ nav {
     }
 
     .nav-links {
-        display: block; /* Changed from display: none */
+        display: block; 
         position: absolute;
         top: 100%;
         left: 0;
@@ -176,17 +176,17 @@ nav {
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         z-index: 1000;
         background: rgba(0, 0, 0, 0.9);
-        opacity: 0; /* Start fully transparent */
-        visibility: hidden; /* Hide from screen readers/interaction */
-        transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
-        transform: translateY(-10px); /* Start slightly offset */
+        opacity: 0;
+        visibility: hidden; 
+        transition: opacity 0.3s ease, visibility 0.3s ease; 
+        transform: translateY(-10px); 
         transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
       }
 
       .nav-links.active {
-        opacity: 1; /* Fully visible */
+        opacity: 1; 
         visibility: visible; 
-        transform: translateY(0); /* Move to final position */
+        transform: translateY(0); 
     }
    
     .nav-list {
