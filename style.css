@@ -119,8 +119,6 @@ h1, h2, h3 {
 
 /*hamborgir*/
 
-/* Hamburger default styles */
-
 nav {
     position: relative; 
   }
@@ -152,7 +150,6 @@ nav {
 }
 
 @media (max-width: 900px) {
-    /* Show hamburger and adjust layout */
     .hamburger {
         display: block;
         order: 1;
@@ -166,19 +163,20 @@ nav {
     .nav-right {
         display: flex;
         align-items: center;
+        padding: 2% 0
     }
 
-    /* Hide nav links by default */
+   
     .nav-links {
         display: none;
-  position: absolute;
-  top: 100%;
-  left: 0; /* Changed from right: 0 */
-  width: 100%;
-  padding: 1rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  z-index: 1000;
-  background: rgba(0, 0, 0, 0.9); /* Add background for visibility */
+        position: absolute;
+        top: 100%;
+        left: 0; 
+         width: 100%;
+         padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        z-index: 1000;
+        background: rgba(0, 0, 0, 0.9); 
 
     }
 
@@ -186,13 +184,15 @@ nav {
         display: block !important;
     }
 
-    /* Stack navigation items vertically */
+   
     .nav-list {
         flex-direction: column;
+        padding-left: 0;
     }
 
     .nav-item {
         margin: 10px 0;
+        padding: 0;
     }
 }
 
