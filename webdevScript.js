@@ -391,6 +391,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 pointer-events: none;
             }
             .submit-btn2 {
+                margin: 0 auto;
                 margin-top: 20px;
                 padding: 10px 20px;
                 background-color: #4CAF50;
