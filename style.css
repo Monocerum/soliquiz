@@ -166,21 +166,27 @@ nav {
     }
 
     .nav-links {
-        display: none;
+        display: block; /* Changed from display: none */
         position: absolute;
         top: 100%;
-        left: 0; 
+        left: 0;
         width: 100%;
         padding: 1rem;
         padding-left: 0;
         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         z-index: 1000;
-        background: rgba(0, 0, 0, 0.9); 
+        background: rgba(0, 0, 0, 0.9);
+        opacity: 0; /* Start fully transparent */
+        visibility: hidden; /* Hide from screen readers/interaction */
+        transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+        transform: translateY(-10px); /* Start slightly offset */
+        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+      }
 
-    }
-
-    .nav-links.active {
-        display: block !important;
+      .nav-links.active {
+        opacity: 1; /* Fully visible */
+        visibility: visible; 
+        transform: translateY(0); /* Move to final position */
     }
    
     .nav-list {
