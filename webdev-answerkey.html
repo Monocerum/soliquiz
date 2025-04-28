@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soliquiz - Subject Answer Keys</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: black;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: rgba(215, 215, 215, 0.42);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subject-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subject-title {
+            background-color: #330000;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .question-card {
+            background-color: #f8fafc;
+            border-radius: 6px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .question-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .question-number {
+            font-weight: bold;
+            color: #330000;
+            margin-bottom: 5px;
+        }
+        
+        .question-text {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .answer {
+            background-color: rgba(215, 215, 215, 0.42);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #330000;
+            display: inline-block;
+        }
+        
+        @media (max-width: 768px) {
+            .question-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subject-title {
+                font-size: 1.3rem;
+            }
+        }
+        
+    
+        
+       
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="nav-logo">
+                <a href=# class="nav-logo"><img src="images/logo.svg" alt="Logo of Soliquiz" class="nav-logo-img"></a>
+            </div>
+            <div class="nav-right">
+                <div class="menu-box">
+                    <a href="quiz-main.html" class="nav-link"> <img src="images/menu-box.png" alt="Menu Box Icon" class="menu-box-icon"></a></li>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <header>
+            <h1>Soliquiz - Subject Answer Keys</h1>
+            <p>A comprehensive collection of answers for multiple subjects</p>
+        </header>
+        
+        <div class="subject-section" id="web-development">
+            <div class="subject-title">Web Development</div>
+            <div class="question-grid">
+                <div class="question-card">
+                    <div class="question-number">Question 1</div>
+                    <div class="question-text">It is the standard language for creating and designing webpages and web applications.</div>
+                    <div class="answer">C. HyperText Markup Language</div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-number">Question 2</div>
+                    <div class="question-text">Up to what heading element is valid in HTML?</div>
+                    <div class="answer">B. h6</div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-number">Question 3</div>
+                    <div class="question-text">It is an HTML element that allows you to embed another HTML document within the current page.</div>
+                    <div class="answer">B. &lt;iframe&gt;</div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-number">Question 4</div>
+                    <div class="question-text">Which of the following denotes the universal selector?</div>
+                    <div class="answer">A. *</div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-number">Question 5</div>
+                    <div class="question-text">In CSS, when using shorthand to define properties like border, padding, or margin, what is the correct order for specifying the values?</div>
+                    <div class="answer">A. Top, Right, Bottom, Left</div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-number">Question 6</div>
+                    <div class="question-text">Which CSS selector targets elements based on their class attribute?</div>
+                    <div class="answer">B. .menu</div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-number">Question 7</div>
+                    <div class="question-text">JavaScript was first known as _____.</div>
+                    <div class="answer">D. LiveScript</div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-number">Question 8</div>
+                    <div class="question-text">Given this series of operations: var y = 5; alert(++y); y = y + 2; alert(y--); y--; alert(--y); alert(y++); y++; alert(y);</div>
+                    <div class="answer">B. 7</div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-number">Question 9</div>
+                    <div class="question-text">To insert a JavaScript into an HTML page, which tag is used?</div>
+                    <div class="answer">C. &lt;script&gt;</div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-number">Question 10</div>
+                    <div class="question-text">It is a software program that enables a user to access information on the Internet via the World Wide Web.</div>
+                    <div class="answer">C. web browser</div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

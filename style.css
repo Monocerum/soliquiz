@@ -4226,6 +4226,20 @@ footer {
     transition: background-color 0.3s;
 }
 
+.anskey-btn {
+    display: block;
+    width: 200px;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #c42b05b0;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
 .restart-btn:hover {
     background-color: var(--green);
 }

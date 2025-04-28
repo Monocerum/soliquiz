@@ -280,7 +280,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="score-progress">
                 <div class="score-progress-bar" style="width: ${score / quizContents.length * 100}%;"></div>
             </div>  
-            <button class="restart-btn">Restart Quiz</button>                 
+            <button class="restart-btn">Restart Quiz</button>   
+            <button class="anskey-btn">See Answer Key</button>                  
         `;                               
         
         localStorage.setItem('quizScore', score);                 
@@ -288,7 +289,11 @@ document.addEventListener("DOMContentLoaded", () => {
         
         document.querySelector(".restart-btn").addEventListener("click", () => {                                    
             location.reload();                 
-        });             
+        }); 
+        
+        document.querySelector(".anskey-btn").addEventListener("click", () => {                                    
+            window.location.href = "ias-answerkey.html";                
+        });  
     }
     
     const questionContainer = document.querySelector(".questions-container");

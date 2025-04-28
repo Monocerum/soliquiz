@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soliquiz - Subject Answer Keys</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: black;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: rgba(215, 215, 215, 0.42);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subject-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subject-title {
+            background-color: #330000;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .question-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .question-card {
+            background-color: #f8fafc;
+            border-radius: 6px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .question-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .question-number {
+            font-weight: bold;
+            color: #330000;
+            margin-bottom: 5px;
+        }
+        
+        .question-text {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .answer {
+            background-color: rgba(215, 215, 215, 0.42);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #330000;
+            display: inline-block;
+        }
+        
+        @media (max-width: 768px) {
+            .question-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subject-title {
+                font-size: 1.3rem;
+            }
+        }
+        
+    
+        
+       
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <div class="nav-logo">
+                <a href=# class="nav-logo"><img src="images/logo.svg" alt="Logo of Soliquiz" class="nav-logo-img"></a>
+            </div>
+            <div class="nav-right">
+                <div class="menu-box">
+                    <a href="quiz-main.html" class="nav-link"> <img src="images/menu-box.png" alt="Menu Box Icon" class="menu-box-icon"></a></li>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <header>
+            <h1>Soliquiz - Subject Answer Keys</h1>
+            <p>A comprehensive collection of answers for multiple subjects</p>
+        </header>
+        
+        <div class="subject-section" id="trivia">
+            <div class="subject-title">Trivia</div>
+            <div class="question-grid">
+                <div class="question-card">
+                    <div class="question-number">Question 1</div>
+                    <div class="question-text">What is the powerhouse of the cell?</div>
+                    <div class="answer">C. Mitochondria</div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-number">Question 2</div>
+                    <div class="question-text">What is the mathematical symbol for pi (π) approximately equal to?</div>
+                    <div class="answer">D. 3.14</div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-number">Question 3</div>
+                    <div class="question-text">Who was the leader of the Katipunan, the revolutionary society that fought against Spanish rule?</div>
+                    <div class="answer">B. Andrés Bonifacio</div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-number">Question 4</div>
+                    <div class="question-text">Who is the youngest member of BINI?</div>
+                    <div class="answer">B. Sheena</div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-number">Question 5</div>
+                    <div class="question-text">What is the smallest country in the world by land area?</div>
+                    <div class="answer">B. Vatican City</div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-number">Question 6</div>
+                    <div class="question-text">Which famous inventor is known for inventing the light bulb?</div>
+                    <div class="answer">C. Thomas Edison</div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-number">Question 7</div>
+                    <div class="question-text">What is the hardest natural substance on Earth?</div>
+                    <div class="answer">C. Diamond</div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-number">Question 8</div>
+                    <div class="question-text">What is the largest mammal in the world?</div>
+                    <div class="answer">A. Blue Whale</div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-number">Question 9</div>
+                    <div class="question-text">Which fictional city is the home of Batman?</div>
+                    <div class="answer">D. Gotham</div>
+                </div>
+                
+                <div class="question-card">
+                    <div class="question-number">Question 10</div>
+                    <div class="question-text">How many sides does a dodecagon have?</div>
+                    <div class="answer">C. 12</div>
+                </div>
+            </div>
+        </div>
+        
+</body>
+</html>
