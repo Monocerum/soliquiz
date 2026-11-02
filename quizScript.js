@@ -26,13 +26,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     previousBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        currentPosition = (currentPosition - 1 + quizContainers.length) % quizContainers.length;
+
+        currentPosition--;
+
+        if (currentPosition < 0) {
+            currentPosition = quizContainers.length - visibleQuizzes;
+        }
+
         updateVisibility();
     });
 
     nextBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        currentPosition = (currentPosition + 1) % quizContainers.length;
+
+        currentPosition++;
+
+        if (currentPosition > quizContainers.length - visibleQuizzes) {
+            currentPosition = 0;
+        }
+
         updateVisibility();
     });
 
